@@ -1,10 +1,8 @@
-![](https://www.dropbox.com/s/4kjv41m03748tjo/j211ty-lobby-card%402x.jpg?raw=1)
-
-# J211ty
+# Mack Richardson Media
 > Created by Mack Richardson ([@macktropolis](https://github.com/macktropolis))
 > 
 ## Overview
-J211ty [ Jammin' 2 11ty ] is a Jamstack site framework meant to get your site up and running quickly with Eleventy and SASS.
+Mack Richardson Media is the gateway website to the work and hobbies of Mack Richardson.
 ## Quick Start
 
 1. [Generate a repo from this template](https://github.com/macktropolis/j211ty/generate)
@@ -14,11 +12,6 @@ J211ty [ Jammin' 2 11ty ] is a Jamstack site framework meant to get your site up
 4. Run `npm start` to run both 11ty and sass in watch mode. Use `npm run build` to run a production version, which will also generate social share preview images.
 5. Open `src/_data/site.json` and adjust the values to your details.
 6. Review the [11ty documentation](https://11ty.dev) to more deeply apply customizations, including adding custom data sources and reviewing what template languages are available.
-
-### Is Netlify hosting required?
-
-It's not required, but highly recommended. The build process is setup to run using Netlify.
-
 ## Development Scripts
 
 **`npm start`**

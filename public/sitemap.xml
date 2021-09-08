@@ -28,31 +28,31 @@
   
   <url>
     <loc>/admin/</loc>
-    <lastmod>16 Jul 2021</lastmod>
-  </url>
-  
-  <url>
-    <loc>/</loc>
-    <lastmod>16 Jul 2021</lastmod>
+    <lastmod>08 Sep 2021</lastmod>
   </url>
   
   <url>
     <loc>/blog/</loc>
-    <lastmod>16 Jul 2021</lastmod>
+    <lastmod>08 Sep 2021</lastmod>
+  </url>
+  
+  <url>
+    <loc>/</loc>
+    <lastmod>08 Sep 2021</lastmod>
   </url>
   
   <url>
     <loc>/helloworld/</loc>
-    <lastmod>16 Jul 2021</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/tips/</loc>
-    <lastmod>19 Jul 2021</lastmod>
+    <lastmod>08 Sep 2021</lastmod>
   </url>
   
   <url>
     <loc>/tags/</loc>
-    <lastmod>19 Jul 2021</lastmod>
+    <lastmod>08 Sep 2021</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/tips/</loc>
+    <lastmod>08 Sep 2021</lastmod>
   </url>
 </urlset>
