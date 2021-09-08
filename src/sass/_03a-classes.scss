@@ -1,0 +1,118 @@
+@use 'external-stylesheets/' as *;
+/* --------------------------------------------------------
+3.0 HTML Elements
+    └── 3.a Classes
+        ├── 3.a.1 Buttons
+        └── 3.a.10 General Classes
+-------------------------------------------------------- */
+
+/* --------------------------------------------------------
+3.a Classes
+#classes
+-------------------------------------------------------- */
+
+// 3.a.1 Buttons
+// #buttons
+// --------------------------------------------------------
+.btn {
+    background: transparent;
+    border: var(--flow-50) solid hsl( var(--clr-secondary) );
+    color: hsl( var(--clr-secondary) );
+    display: inline-block;
+    clear: both;
+    letter-spacing: 1px;
+    padding: var(--flow-200) var(--flow-500);
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    text-transform: var(--tt-upper);
+
+    &::after {
+        background-color: hsl( var(--clr-secondary) );
+        content: ('');
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        transition: transform 0.25s ease-in-out;
+        transform: scale(0, 1);
+        transform-origin: right center;
+        z-index: -1;
+    }
+
+    &:hover {
+        color: hsl( var(--clr-white) );
+    }
+
+    &:hover::after {
+        transform: scale(1, 1);
+        transform-origin: left center;
+        transition: transform 0.45s ease-in-out;
+    }
+
+    &.alt {
+        border-color: hsl( var(--clr-black) / .75 );
+        color: hsl( var(--clr-black) / .75 );
+
+        &:hover {
+            color: hsl( var(--clr-white) );
+        }
+
+        &::after {
+            background-color: hsl( var(--clr-black) / .75 );
+        }
+
+        &.invert {
+            border-color: hsl( var(--clr-white) );
+            color: hsl( var(--clr-white) );
+    
+            &:hover {
+                color: hsl( var(--clr-black) );
+            }
+    
+            &::after {
+                background-color: hsl( var(--clr-white) );
+            }
+        }
+    }
+
+    &.error {
+        border-color: hsl( var(--clr-error) );
+        color: hsl( var(--clr-error) );
+
+        &:hover {
+            color: hsl( var(--clr-white) );
+        }
+
+        &::after {
+            background-color: hsl( var(--clr-error) );
+        }
+    }
+
+    &.ok {
+        border-color: hsl( var(--clr-ok) );
+        color: hsl( var(--clr-ok) );
+
+        &:hover {
+            color: hsl( var(--clr-white) );
+        }
+
+        &::after {
+            background-color: hsl( var(--clr-ok) );
+        }
+    }
+    
+}
+
+// 3.a.10 General Classes
+// #general
+// --------------------------------------------------------
+.no-margin {
+    margin: 0 !important;
+}
+
+.no-padding {
+    padding: 0 !important;
+}

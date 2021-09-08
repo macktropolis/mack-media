@@ -1,0 +1,19 @@
+{% include '_site-head.njk' %}
+<body class="site{% if pageClass %} {{pageClass}}{% endif %}">
+
+    {% include '_header.njk' %}
+    {% include '_jumbotron.njk' %}
+
+    <main tabindex="-1" class="site__content" id="content">
+        <a name="home" id="anchor--home">Home</a>
+        {{ content | safe }}
+
+        {% set ctaContent = cta %} 
+        {% include '_cta.njk' %}
+    </main>
+    
+    {% include '_footer.njk' %}
+    {% include '_scripts.njk' %}
+
+</body>
+</html>

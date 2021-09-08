@@ -1,0 +1,31 @@
+{
+  "name": "jammin-to-eleventy",
+  "version": "1.0.0",
+  "description": "A Jamstack site framework using Eleventy and SASS.",
+  "main": ".eleventy.js",
+  "scripts": {
+    "watch:sass": "npx sass src/sass:public/css --watch",
+    "watch:eleventy": "npx @11ty/eleventy --serve",
+    "start": "concurrently \"npm run watch:eleventy\" \"npm run watch:sass\"",
+    "build": "eleventy"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/macktropolis/jammin-to-eleventy.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/macktropolis/jammin-to-eleventy/issues"
+  },
+  "homepage": "https://github.com/macktropolis/jammin-to-eleventy#readme",
+  "devDependencies": {
+    "@11ty/eleventy": "^0.12.1",
+    "@11ty/eleventy-plugin-rss": "^1.1.1",
+    "concurrently": "^6.2.0",
+    "gulp": "^4.0.2",
+    "nunjucks": "^3.2.3",
+    "sass": "^1.35.1"
+  }
+}

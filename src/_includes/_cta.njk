@@ -1,0 +1,15 @@
+{% set ctaPrefix = cta %}
+
+{% if ctaContent %} 
+  {% set ctaPrefix = ctaContent %}
+{% endif %}
+
+<section class="cta container">
+  <div class="container__inner flow">
+      <h2 class="cta__heading headline" data-highlight="quaternary">{{ ctaPrefix.title }}</h2>
+      <p class="cta__summary measure-short">{{ ctaPrefix.summary }}</p>
+      <div class="cta__action">
+        <a class="btn btn--primary alt invert" data-variant="ghost" href="{{ ctaPrefix.buttonUrl }}">{{ ctaPrefix.buttonText }}</a>
+      </div>
+  </div>
+</section>

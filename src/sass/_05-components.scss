@@ -1,0 +1,381 @@
+@use 'external-stylesheets/' as *;
+/* --------------------------------------------------------
+5.0 Components
+    ├── 5.2 Brand
+    ├── 5.3 Call to Action
+    ├── 5.4 Jumbotron
+    ├── 5.5 Naviation
+    |   ├── 5.5.1 Current Page
+    |   ├── 5.5.2 Base Navigation
+    |   └── 5.5.3 Navigation for Tablet+ Screen Sizes
+-------------------------------------------------------- */
+
+/* --------------------------------------------------------
+5.0 Components
+#components
+-------------------------------------------------------- */
+// 5.2 Brand
+// #brand
+// --------------------------------------------------------
+.brand {
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+    h1.brand__title {
+        opacity: 0;
+        overflow: hidden;
+        position: absolute;
+        left: -1000px;
+        top: -1000px;
+        height: 1px;
+        width: 1px;
+        text-indent: -1000px;
+    }
+
+    .logo {
+        filter: invert(22%) sepia(36%) saturate(3020%) hue-rotate(328deg) brightness(121%) contrast(94%);
+        height: auto;
+        max-width: 175px;
+
+        @include center-margins;
+
+        @include media('>tablet') {
+            margin-left: 0;
+        }
+    }
+}
+
+// 5.3 Call to Action
+// #cta
+// --------------------------------------------------------
+.cta {
+    background-color: hsl( var(--clr-primary) );
+    color: hsl( var(--clr-white) );
+
+    & > .container__inner {
+        max-width: var(--width-900);
+
+        h2 {
+            font-size: var(--flow-300);
+            margin-bottom: var(--flow-50);
+        }
+
+        p {
+            margin-bottom: var(--flow-300);
+        }
+    }
+}
+
+// 5.4 Jumbotron
+// #jumbotron
+// --------------------------------------------------------
+#jumbotron {
+    isolation: isolate;
+    padding: 0;
+    padding-bottom: var(--flow-900);
+    padding-top: var(--flow-900);
+    position: relative;
+
+    &::before {
+        background: 
+            linear-gradient(
+                0deg,
+                hsl( var(--clr-black) / 0.8 ),
+                hsl( var(--clr-black) / 0.8 )
+            );
+        content: '';
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        inset: 0;
+        z-index: -1;
+    }
+
+    .container__inner {    
+        display: flex;
+        flex-direction: column-reverse;
+        gap: var(--flow-200);
+        margin: var(--flow-300);
+        max-width: var(--width-900);
+        padding: 0;
+
+        @include center-margins;
+
+        .flow {
+            padding-top: 0;
+            padding-bottom: 0;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            color: var(--clr-white);
+            font-size: var(--fs-400);
+            margin-bottom: var(--flow-200);
+            text-align: center;
+
+            @include media('>=tablet') {
+                margin-bottom: var(--flow-50);
+                text-align: left;
+            }
+        }
+
+        aside > img {
+            display: block;
+            height: 100%;
+            object-fit: contain;
+            width: 100%;
+            max-width: 80%;
+
+            @include center-margins;
+        }
+
+        aside > .logo {
+            filter: invert(100%) sepia(0%) saturate(7500%) hue-rotate(326deg) brightness(103%) contrast(106%);
+        }
+
+        .meta {
+            color: hsl( var(--clr-white) / .75);
+        }
+    }
+
+    @include media('>=desktop') {
+        .container__inner {
+            flex-wrap: wrap;
+            flex-flow: row-reverse;
+
+            & > *:nth-child(1) {
+                flex: 1 1 70%;
+                min-width: 25ch;
+            }
+
+            & > *:nth-child(2) {
+                flex: 1 1 30%;
+                min-width: 15ch;
+            }
+        }
+    }
+
+    &.article__header {
+        padding-bottom: 0;
+        padding-top: 0;
+    }
+}
+
+// 5.5 Navigation
+// #cta
+// --------------------------------------------------------
+
+// 5.5.1 Current Page
+// #current-page
+// --------------------------------------------------------
+.nav {
+
+    &__item {
+
+        [aria-current="page"] {
+            font-weight: var(--fw-900);
+        }
+    }
+}
+
+// 5.5.2 Base Navigation
+// #base-nav
+// --------------------------------------------------------
+.nav {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    text-align: left;
+    transform: scale(1, 0);
+    transform-origin: top;
+    transition: transform 400ms ease-in-out;
+    width: 100%;
+
+    &__list {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+
+        li {
+            font-family: var(--ff-sans);
+
+            a {
+                color: hsl( var(--clr-white) );
+                display: block;
+                font-size: var(--fs-50);
+                opacity: 0;
+                transition: opacity 100ms ease-in-out;
+                text-align: center;
+                text-decoration: none;
+                text-transform: var(--tt-upper);
+            }
+
+            a::before {
+                background-color: hsl( var(--clr-white) );
+            }
+
+            a::after {
+                display: none;
+            }
+
+            [aria-current="page"] {
+                font-weight: var(--fw-900);
+
+                &::before {
+                    height: 20px;
+                    transform: scaleY(1);
+                }
+            }
+
+        }
+    }            
+}
+
+.nav-toggle {
+    display: none;
+}
+
+.nav-toggle:checked ~ nav {
+    background-color: hsl( var(--clr-white) );
+    box-shadow: 0 0 var(--flow-100) hsl( var(--clr-black) );
+    transform: scale(1,1);
+
+    ul {
+        li {
+            a {
+                opacity: 1;
+                transition: opacity 250ms ease-in-out 250ms;
+            }
+        }
+    }
+}
+
+.nav-toggle:checked ~ .nav-toggle-label {
+    transform: rotate(-45deg);
+}
+
+.nav-toggle:checked ~ .nav-toggle-label {
+
+    span:before {
+        opacity: 0;
+        bottom: auto;
+    }
+
+    span:after {
+        transform: rotate(90deg);
+        top: auto;
+    }
+
+}
+
+.nav-toggle-label {
+    align-items: center;
+    display: flex;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin-left: 1rem;
+
+    span,
+    span:before,
+    span:after {
+        background-color: hsl( var(--clr-white) );
+        border-radius: 2px;
+        display: block;
+        height: 5px;
+        position: relative;
+        transition: all ease-in-out 250ms;
+        width: 1.5rem;
+    }
+
+    span:before,
+    span:after {
+        content: '';
+        position: absolute;
+    }
+
+    span:before {
+        bottom: 10px;
+    }
+
+    span:after {
+        top: 10px;
+    }
+}
+
+#site__header.scrolled {
+    .nav-toggle-label {
+        span,
+        span:before,
+        span:after {
+            background-color: hsl( var(--clr-white) );
+        }
+    }
+}
+
+// 5.5.3 Navigation for Tablets+ Screen Sizes
+// #nav-wide
+// --------------------------------------------------------
+@include media('>=tablet') {
+
+    nav.site-nav {
+        all: unset;
+        align-items: center;
+        grid-column: 2 / span 2;
+        grid-template-columns: 1fr 1fr;
+        display: flex;
+        justify-content: flex-end;
+        
+        ul {
+            background-color: transparent;
+            display: flex;
+
+            li {
+                margin-bottom: 0;
+                margin-left: var(--flow-200);
+
+                a {
+                    opacity: 1;
+                    position: relative;
+                }
+
+                a::before {
+                    background-color: hsl( var(--clr-white) );
+                    content: '';
+                    display: block;
+                    height: 10px;
+                    position: absolute;
+                    top: calc( var(--flow-400) * -1 );
+                    left: 0;
+                    right: 0;
+                    transform: scaleY(0);
+                    transform-origin: top;
+                    transition: transform ease-in-out 250ms;
+                }
+
+                a:hover::before {
+                    transform: scaleY(1);
+                    
+                }
+            }
+        }
+    }
+
+    .nav-toggle-label {
+        display: none;
+    }
+
+    #site__header.scrolled {
+
+        nav.site-nav {
+            ul {
+                li {
+                    a::before {
+                        top: calc( var(--flow-400) * -1 );
+                    }
+                }
+            }
+        }
+    }
+}

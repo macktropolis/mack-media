@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hello World | Jammin&#39; to Eleventy</title>
+    <link rel="stylesheet" href="/css/destyle.css">
+    <link rel="stylesheet" href="/css/styles.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script defer src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+    <script src="https://kit.fontawesome.com/865e79b577.js" crossorigin="anonymous"></script>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-XXXXX-XX"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-XXXXX-XX');
+    </script>
+</head>
+<body class="site page">
+
+    <header id="site__header">
+    <div class="brand">
+    <h1 class="brand__title"> 
+        <a href="/"><span>Jammin&#39; to Eleventy</span></a>
+    </h1>
+    <img src="/assets/logo.svg" alt="Jammin&#39; to Eleventy" class="logo">
+</div>
+    <input id="nav-toggle" class="nav-toggle" type="checkbox">
+<nav class="nav site-nav">
+    <ul role="list" class="nav__list"><li class="nav__item">
+            <a href="/" >Home</a>
+        </li><li class="nav__item">
+            <a href="/blog/" >Blog</a>
+        </li><li class="nav__item">
+            <a href="/helloworld/"  aria-current="page" data-state="active">Test</a>
+        </li></ul>
+</nav>
+<label for="nav-toggle" class="nav-toggle-label"><span></span></label>
+</header>
+    
+
+
+
+<section id="jumbotron" class="container bg flow">
+    <div class="container__inner flow"><div class="page-header">
+            <h1 class="page-header__heading headline" data-highlight="primary">
+
+            
+            Hello World</h1><hr>
+            <p class="page-header__summary measure-long">
+            A demo of the &quot;Page&quot; template and kitchen sink sample of styled elements.
+            </p></div></div><img class="bg__img cover" src="/assets/backgrounds/code.jpg" alt="">
+    
+</section>
+
+    <main tabindex="-1" class="site__content" id="content">
+        <a name="home" id="anchor--home">Home</a>
+        
+
+<div class="container__inner flow">
+    <blockquote>
+<p>Credit for the kitchen sink elements to the <a href="https://github.com/pmarsceill/just-the-docs">&quot;Just the Docs&quot;</a> project by <a href="https://github.com/pmarsceill">pmarsceill</a>.</p>
+</blockquote>
+<h1>Header 1</h1>
+<p>This is a normal paragraph following a header. <code>GitHub</code> is a code hosting platform for version control and collaboration. It lets you and others work together on projects from anywhere.</p>
+<p>Text can be <strong>bold</strong>, <em>italic</em>, or <s>strikethrough</s>.</p>
+<p><a href="/about">Link to another page</a>.</p>
+<h2>Header 2</h2>
+<blockquote>
+<p>This is a blockquote following a header.</p>
+<p>When something is important enough, you do it even if the odds are not in your favor.</p>
+</blockquote>
+<h3>Header 3</h3>
+<pre class="language-js">
+  <code>
+    // Javascript code with syntax highlighting.
+    var fun = function lang(l) {
+      dateformat.i18n = require("./lang/" + l);
+      return true;
+    };
+  </code>
+</pre>
+<pre class="language-scss">
+  <code>
+    .btn {
+      background: transparent;
+      border: var(--flow-50) solid hsl( var(--clr-secondary) );
+      color: hsl( var(--clr-secondary) );
+      display: inline-block;
+      clear: both;
+      letter-spacing: 1px;
+      padding: var(--flow-200) var(--flow-500);
+      position: relative;
+      text-align: center;
+      text-decoration: none;
+      text-transform: var(--tt-upper);
+    }
+  </code>
+</pre>
+<pre class="language-ruby">
+  <code>
+    # Ruby code with syntax highlighting
+    GitHubPages::Dependencies.gems.each do |gem, version|
+      s.add_dependency(gem, "= #{version}")
+    end
+  </code>
+</pre>
+<pre>
+  <code>
+Long, single-line code blocks should not wrap. They should horizontally scroll if they are too long. This line should be long enough to demonstrate this.
+  </code>
+</pre>
+<pre class="language-filemaker">
+  <code>
+Long, single-line code blocks should not wrap. They should horizontally scroll if they are too long. This line should be long enough to demonstrate this.
+  </code>
+</pre>
+<h4>Header 4</h4>
+<ul>
+<li>This is an unordered list following a header.</li>
+<li>This is an unordered list following a header.</li>
+<li>This is an unordered list following a header.</li>
+</ul>
+<h5>Header 5</h5>
+<ol>
+<li>This is an ordered list following a header.</li>
+<li>This is an ordered list following a header.</li>
+<li>This is an ordered list following a header.</li>
+</ol>
+<h3>There's a horizontal rule below this.</h3>
+<hr>
+<h3>Here is an unordered list:</h3>
+<ul>
+<li>Item foo</li>
+<li>Item bar</li>
+<li>Item baz</li>
+<li>Item zip</li>
+</ul>
+<h3>And an ordered list:</h3>
+<ol>
+<li>Item one
+<ol>
+<li>Sub-item one</li>
+<li>Sub-item two
+<ol>
+<li>Sub-sub-item one</li>
+<li>Sub-sub-item two</li>
+<li>Sub-sub-item three</li>
+</ol>
+</li>
+<li>Sub-item three</li>
+</ol>
+</li>
+<li>Item two</li>
+<li>Item three</li>
+<li>Item four</li>
+</ol>
+<h3>And a nested list:</h3>
+<ul>
+<li>level 1 item
+<ul>
+<li>level 2 item</li>
+<li>level 2 item
+<ul>
+<li>level 3 item</li>
+<li>level 3 item</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>level 1 item
+<ul>
+<li>level 2 item</li>
+<li>level 2 item</li>
+<li>level 2 item</li>
+</ul>
+</li>
+<li>level 1 item
+<ul>
+<li>level 2 item</li>
+<li>level 2 item</li>
+</ul>
+</li>
+<li>level 1 item</li>
+</ul>
+<h3>Small Image</h3>
+<p><img src="https://picsum.photos/200" alt=""></p>
+<h3>Large image</h3>
+<p><img src="https://picsum.photos/800/300" alt=""></p>
+
+</div>
+
+
+
+         
+        
+
+ 
+  
+
+
+<section class="cta container">
+  <div class="container__inner flow">
+      <h2 class="cta__heading headline" data-highlight="quaternary">Get in touch if we seem like a good fit</h2>
+      <p class="cta__summary measure-short">Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec ullamcorper nulla non metus auctor fringilla.</p>
+      <div class="cta__action">
+        <a class="btn btn--primary alt invert" data-variant="ghost" href="">Start a new project</a>
+      </div>
+  </div>
+</section>
+    </main>
+    
+    <footer id="site__footer">
+    <section class="inner flow grid">
+        <div class="brand">
+    <h1 class="brand__title"> 
+        <a href="/"><span>Jammin&#39; to Eleventy</span></a>
+    </h1>
+    <img src="/assets/logo.svg" alt="Jammin&#39; to Eleventy" class="logo">
+</div>
+        <p class="m-all-0">&copy;1969&dash;2021 Mack Richardson dba Jammin&#39; to Eleventy</p>
+    </section>
+</footer>
+    <script src="/js/index.js"></script>
+<script src="/js/netlify-cms.js"></script>
+<script src="/js/int-observers.js"></script>
+<script src="/js/lazy-load.js"></script>
+
+</body>
+</html>

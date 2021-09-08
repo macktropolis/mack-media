@@ -1,0 +1,6 @@
+{
+    "tags": "pages",
+    "layout": "page.njk",
+    "permalink": "/{{ page.fileSlug }}/"
+  }
+  

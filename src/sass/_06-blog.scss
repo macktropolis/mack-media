@@ -1,0 +1,136 @@
+@use 'external-stylesheets/' as *;
+/* --------------------------------------------------------
+6.0 Blog
+    ├── 6.1 Articles List
+    |   └── 6.1.1 Articles List for Blog Page
+    ├── 6.2 Article Meta
+    ├── 6.3 Main Article Page
+    ├── 6.4 Tags
+    └── 6.5 Pagination
+-------------------------------------------------------- */
+
+/* --------------------------------------------------------
+6.0 Blog
+#blog
+-------------------------------------------------------- */
+
+// 6.1 Articles List
+// #articles
+// --------------------------------------------------------
+.articles {
+
+    .section-title {
+        font-size: var(--fs-100);
+    }
+
+    .articles__list {
+        list-style: none;
+        padding: 0;
+
+        li {
+            margin-bottom: var(--flow-900);
+            padding: 0;
+
+            &:last-of-type {
+                margin-bottom: 0;
+            }
+            
+            .container__inner {
+                display: flex;
+                align-items: center;
+                flex-wrap: nowrap;
+                flex-direction: column-reverse;
+                gap: var(--flow-300);
+                justify-content: center;
+                margin: 0;
+                max-width: var(--width-max);
+                width: 100%;
+                padding: 0;
+
+                @include center-margins;
+
+                @include media('>=tablet') {
+                    flex-direction: row;
+
+                    & > *:nth-child(1) {
+                        align-self: flex-start;
+                        flex: 1 1 70%;
+                        min-width: var(--width-400);
+                    }
+            
+                    & > *:nth-child(2) {
+                        flex: 1 1 30%;
+                        min-width: var(--width-300);
+                    }
+                }
+            }
+
+            aside {
+                margin-bottom: var(--flow-300);
+                
+                @include media('>=tablet') {
+                    margin-bottom: 0;
+                }
+
+                & > img {
+                    height: 100%;
+                    object-fit: cover;
+                    width: 100%;
+                }
+            }      
+        }
+    }
+}
+
+// 6.1.1 Articles List for Blog Page
+// #blog #articles
+// --------------------------------------------------------
+// .blog .articles {}
+
+// 6.2 Article Meta
+// #article #meta
+// --------------------------------------------------------
+.meta {
+    color: hsl( var(--clr-black) / .5);
+    
+    a {
+        margin-right: var(--flow-100);
+
+        &:last-of-type {
+            margin-right: 0;
+        }
+    }
+}
+
+// 6.3 Full Article Page
+// #full-article
+// --------------------------------------------------------
+// body.article {}
+
+// 6.4 Tags
+// #tags
+// --------------------------------------------------------
+.tags {
+    margin-bottom: var(--flow-800);
+    padding: 0;
+}
+
+// 6.4 Pagination
+// #pagination
+// --------------------------------------------------------
+.pagination {
+    margin-top: var(--flow-600);
+
+    &__inner.grid {
+        justify-content: start;
+        width: 100%;
+
+        a.btn[data-direction="forwards"] {
+            justify-self: start;
+        }
+
+        a.btn[data-direction="backwards"] {
+            justify-self: end;
+        }
+    }
+}

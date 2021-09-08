@@ -1,0 +1,190 @@
+@use 'external-stylesheets/' as *;
+/* --------------------------------------------------------
+4.0 Layout
+    ├── 4.1 Flexbox
+    ├── 4.2 Floats
+    ├── 4.3 Flow
+    ├── 4.4 Grid
+    ├── 4.5 Site Content
+    ├── 4.6 Site Header
+    └── 4.7 Site Footer
+-------------------------------------------------------- */
+
+/* --------------------------------------------------------
+4.0 Layout
+#layout
+-------------------------------------------------------- */
+
+// 4.1  Flexbox
+// #flexbox
+// --------------------------------------------------------
+.flex {
+    display: flex;
+    align-items: center;
+    gap: var(--flow-400);
+    flex-direction: row;
+    justify-content: center;
+}
+
+// 4.2 Floats
+// #floats
+// --------------------------------------------------------
+.float {
+    display: block;
+    float: none;
+    margin-bottom: var(--flow-200);
+    margin-top: var(--flow-200);
+
+    @include media('>=tablet') {
+        float: left;
+        margin-right: var(--flow-300);
+        width: 40%;
+    }
+
+    &.right {
+        @include media('>=tablet') {
+            float: right;
+            margin-left: var(--flow-400);
+            margin-right: 0;
+        }
+    }
+
+    & > img {
+        display: block;
+        height: 100%;
+        object-position: contain;
+        width: 100%;
+    }
+
+    .caption {
+        color: hsl( var(--clr-black) / .80 );
+        font-style: oblique;
+        display: block;
+        text-align: center;
+    }
+}
+
+// 4.3  Flow
+// #flow
+// --------------------------------------------------------
+.flow {
+    padding: var(--flow-300) var(--flow-200);
+}
+
+// 4.4  Grid
+// #grid
+// --------------------------------------------------------
+.grid {
+    display: grid;
+    align-items: center;
+    gap: var(--flow-200);
+    grid-template-columns: auto;
+    justify-content: center;
+
+    & > .center {
+        justify-self: center;
+    }
+}
+
+// 4.4  Site Content
+// #site-content
+// --------------------------------------------------------
+.site__content {
+    width: 100%;
+
+    & > section {
+        .container {
+            padding: var( --flow-800 );
+            @include center-margins;
+        }
+    }
+}
+
+// 4.5  Container Wrapper
+// #container #wrapper
+// --------------------------------------------------------
+.container {
+    padding: 0;
+    position: relative;
+
+    &.bg {
+        background-color: hsl( var(--clr-surface) );
+        color: hsl( var(--clr-white) );
+
+        &.invert {
+            background-color: hsl( var(--clr-surface) );
+            color: var(--clr-bw-900);
+        }
+    }
+
+    &__inner {
+        padding: var( --flow-700 );
+        position: relative;
+        max-width: var(--width-900);
+        width: 100%;
+        z-index: 1;
+
+        @include center-margins;
+    }
+}
+
+// 4.6 Site Header
+// #site-header
+// --------------------------------------------------------
+header#site__header {
+    display: grid;
+    padding: var(--flow-300) var(--flow-500);
+    position: fixed;
+    text-align: center;
+    @include media('>=tablet') {
+        text-align: left;
+    }
+    transition: all ease-in-out 255ms;
+    width: 100%;
+    z-index: 999;
+    
+    nav.site-nav {
+
+        ul {
+            padding: 0;
+
+            li {
+                padding: var(--flow-200) var(--flow-100);
+            }
+        }
+    }
+
+    &.scrolled {
+        background-color: hsl( var(--clr-secondary) / .9 );
+        box-shadow: 0 0 var(--flow-50) hsl( var(--clr-black) );
+        padding: var(--flow-300) var(--flow-200);
+
+        .logo {
+            filter: invert(100%) sepia(0%) saturate(7500%) hue-rotate(326deg) brightness(103%) contrast(106%);
+        }
+    }    
+}
+
+// 4.7 Site Footer
+// #site-footer
+// --------------------------------------------------------
+footer#site__footer {
+
+    section {
+        text-align: center;
+
+        &.grid {
+            gap: var(--flow-sm);
+        }
+
+        &.flow {
+            margin-bottom: 0;
+        }
+
+        .brand {
+            display: flex;
+            justify-content: center;
+            text-align: center;
+        }
+    }
+}

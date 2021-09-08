@@ -1,0 +1,25 @@
+ <li class="post-list__item leading-tight measure-long">
+    <div class="container__inner flow">
+        <article class="snippet">
+            <h3 class="snippet__title">
+                <a href="{{ item.url }}">
+                    {{ item.data.title }}
+                </a>
+            </h3>
+            <hr>
+            <p class="snippet__meta meta">
+                <span class="meta__author">{{ item.data.author }}</span> &bull; 
+                <span class="meta__date">{{ item.date | htmlDateString }}</span> &bull; 
+                <span class="meta__tags">
+                    {% for tag in item.data.tags | filterTagList %}
+                    {% set tagUrl %}/tags/{{ tag | slug }}/{% endset %}
+                    <a href="{{ tagUrl | url }}" class="post-tag {{ tag | slug }}">#{{ tag }}</a>
+                    {% endfor %}
+                </span>
+            </p>
+            <p class="snippet__body">{{ item.data.description }}</p>
+            <a href="{{ item.url }}">Continue Reading <i class="fal fa-arrow-right"></i></a>
+        </article>
+        <aside><img src="{{ item.data.image }}" alt="{{ item.data.imageAlt }}" class="snippet__image"></aside>
+    </div>
+</li>

@@ -1,0 +1,65 @@
+{% set jumbotronPrefix = jumbotron %}
+
+{% if jumbotronContent %} 
+    {% set jumbotronPrefix = jumbotronContent %}
+{% endif %}
+
+<section id="jumbotron" class="container bg flow">
+    <div class="container__inner flow">
+    {%- if loc == 'home' -%}
+        <article class="container__content flow">
+            <h1>{{ jumbotronPrefix.headline }}</h1>
+            <hr class="alt">
+            <p>{{ jumbotronPrefix.copy }}</p>
+            <a href="{{ jumbotronPrefix.buttonURL }}" class="btn btn--primary">{{ jumbotronPrefix.buttonText }}</a>
+        </article>
+        <aside>
+            <img class="logo" src="{{ jumbotronPrefix.image }}" alt="{{ jumbotronPrefix.imageAlt }}">
+        </aside>
+    {%- else -%}
+        <div class="page-header">
+            <h1 class="page-header__heading headline" data-highlight="primary">
+
+            {# If this is a tag, grab those items instead as one large collection #}
+            {% if tag %}
+            {% set pageHeaderTitle = 'Articles tagged with "' + tag + '"' %}
+            {% endif %}
+
+            {%- if pageHeaderTitle -%}
+                {{ pageHeaderTitle }}
+            {%- else -%}
+                {{ title }}
+            {%- endif -%}
+
+            </h1>
+
+            {%- if type == 'post' -%}
+            <p class="article__meta meta">
+                <span class="meta__author">{{ author }}</span> &bull;  
+                <span class="meta__date">{{ date | postDate }}</span> 
+                <span class="meta__tags tags"> &bull;&nbsp;
+                {%- for tag in tags | filterTagList -%}
+                {%- set tagUrl %}/tags/{{ tag | slug }}/{% endset -%}
+                <a href="{{ tagUrl | url }}" class="post-tag {{ tag | slug }}">#{{ tag }}</a>
+                {% endfor %}
+                </span>
+            </p>
+            {%- endif -%}
+            {%- if description -%}
+            <hr>
+            <p class="page-header__summary measure-long">
+            {{ description }}
+            </p>
+            {%- endif -%}
+        </div>
+    {%- endif -%}
+    </div>
+
+    {%- if loc == 'home' -%}
+        <img class="bg__img cover" src="{{ jumbotronPrefix.bgImage }}" alt="{{ jumbotronPrefix.bgImageAlt }}">
+    {%- elseif image -%}
+        <img class="bg__img cover" src="{{ image }}" alt="{{ imgAlt }}">
+    {% else %}
+        <img class="bg__img cover bottom" src="/assets/backgrounds/library.jpg" alt="">
+    {% endif %}
+</section>

@@ -1,0 +1,348 @@
+@use 'external-stylesheets/' as *;
+/* --------------------------------------------------------
+1.0 Variables
+    ├── 1.1 Colors
+    ├── 1.2 Font Sizes
+    ├── 1.3 Font Weights
+    ├── 1.4 Text Transformations
+    ├── 1.5 Alignment
+    ├── 1.6 Flow Spacing
+    ├── 1.7 Opacity
+    ├── 1.8 Border Width
+    ├── 1.9 Border Radius
+    └── 1.10 MinMax Width
+-------------------------------------------------------- */
+
+/* --------------------------------------------------------
+1.0 Variables
+#variables
+-------------------------------------------------------- */
+
+// 1.1 Colors
+// #colors
+// --------------------------------------------------------
+:root {
+    --clr-primary: 0 0% 10%;
+    --clr-secondary: 356 58% 50%;
+    --clr-tertiary: 25 96% 60%;
+    --clr-quaternary: 260 42% 46%;
+    --clr-quinary: 40 96% 27%;
+    --clr-senary: 33 49% 19%;
+    --clr-bg: 218 12% 90%;
+    --clr-surface: 218 12% 50%;
+    --clr-black: 218 12% 10%;
+    --clr-white: 218 12% 90%;
+    --clr-error: 356 58% 50%;
+    --clr-warning: 52 86% 58%;
+    --clr-ok: 80 60% 35%;
+    --clr-transparent: transparent;
+}
+
+// Color Utility Classes
+// i.e. class="txc-primary-100"
+.txc-primary-25 { color: hsl( var(--clr-primary) / .25 ) }
+.txc-primary-75 { color: hsl( var(--clr-primary) / .75 ) }
+.txc-primary-50 { color: hsl( var(--clr-primary) / .50 ) }
+.txc-primary-100 { color: hsl( var(--clr-primary) ) }
+.bgc-primary-25 { background-color: hsl( var(--clr-primary) / .25 ) }
+.bgc-primary-75 { background-color: hsl( var(--clr-primary) / .75 ) }
+.bgc-primary-50 { background-color: hsl( var(--clr-primary) / .50 ) }
+.bgc-primary-100 { background-color: hsl( var(--clr-primary) ) }
+
+.txc-secondary-25 { color: hsl( var(--clr-secondary) / .25 ) }
+.txc-secondary-75 { color: hsl( var(--clr-secondary) / .75 ) }
+.txc-secondary-50 { color: hsl( var(--clr-secondary) / .50 ) }
+.txc-secondary-100 { color: hsl( var(--clr-secondary) ) }
+.bgc-secondary-25 { background-color: hsl( var(--clr-secondary) / .25 ) }
+.bgc-secondary-75 { background-color: hsl( var(--clr-secondary) / .75 ) }
+.bgc-secondary-50 { background-color: hsl( var(--clr-secondary) / .50 ) }
+.bgc-secondary-100 { background-color: hsl( var(--clr-secondary) ) }
+
+.txc-bg-25 { color: hsl( var(--clr-bg) / .25 ) }
+.txc-bg-75 { color: hsl( var(--clr-bg) / .75 ) }
+.txc-bg-50 { color: hsl( var(--clr-bg) / .50 ) }
+.txc-bg-100 { color: hsl( var(--clr-bg) ) }
+.bgc-bg-25 { background-color: hsl( var(--clr-bg) / .25 ) }
+.bgc-bg-75 { background-color: hsl( var(--clr-bg) / .75 ) }
+.bgc-bg-50 { background-color: hsl( var(--clr-bg) / .50 ) }
+.bgc-bg-100 { background-color: hsl( var(--clr-bg) ) }
+
+.txc-surface-25 { color: hsl( var(--clr-surface) / .25 ) }
+.txc-surface-75 { color: hsl( var(--clr-surface) / .75 ) }
+.txc-surface-50 { color: hsl( var(--clr-surface) / .50 ) }
+.txc-surface-100 { color: hsl( var(--clr-surface) ) }
+.bgc-surface-25 { background-color: hsl( var(--clr-surface) / .25 ) }
+.bgc-surface-75 { background-color: hsl( var(--clr-surface) / .75 ) }
+.bgc-surface-50 { background-color: hsl( var(--clr-surface) / .50 ) }
+.bgc-surface-100 { background-color: hsl( var(--clr-surface) ) }
+
+.txc-black-25 { color: hsl( var(--clr-black) / .25 ) }
+.txc-black-75 { color: hsl( var(--clr-black) / .75 ) }
+.txc-black-50 { color: hsl( var(--clr-black) / .50 ) }
+.txc-black-100 { color: hsl( var(--clr-black) ) }
+.bgc-black-25 { background-color: hsl( var(--clr-black) / .25 ) }
+.bgc-black-75 { background-color: hsl( var(--clr-black) / .75 ) }
+.bgc-black-50 { background-color: hsl( var(--clr-black) / .50 ) }
+.bgc-black-100 { background-color: hsl( var(--clr-black) ) }
+
+.txc-white-25 { color: hsl( var(--clr-white) / .25 ) }
+.txc-white-75 { color: hsl( var(--clr-white) / .75 ) }
+.txc-white-50 { color: hsl( var(--clr-white) / .50 ) }
+.txc-white-100 { color: hsl( var(--clr-white) ) }
+.bgc-white-25 { background-color: hsl( var(--clr-white) / .25 ) }
+.bgc-white-75 { background-color: hsl( var(--clr-white) / .75 ) }
+.bgc-white-50 { background-color: hsl( var(--clr-white) / .50 ) }
+.bgc-white-100 { background-color: hsl( var(--clr-white) ) }
+
+.txc-white-25 { color: hsl( var(--clr-white) / .25 ) }
+.txc-white-75 { color: hsl( var(--clr-white) / .75 ) }
+.txc-white-50 { color: hsl( var(--clr-white) / .50 ) }
+.txc-white-100 { color: hsl( var(--clr-white) ) }
+.bgc-white-25 { background-color: hsl( var(--clr-white) / .25 ) }
+.bgc-white-75 { background-color: hsl( var(--clr-white) / .75 ) }
+.bgc-white-50 { background-color: hsl( var(--clr-white) / .50 ) }
+.bgc-white-100 { background-color: hsl( var(--clr-white) ) }
+
+.bgc-transparent { background-color: transparent }
+
+// 1.2 Font Sizes
+// #font-size
+// --------------------------------------------------------
+$type-scale: (
+    small: (
+        50: 1.25rem,
+        100: 1.5rem,
+        200: 2rem,
+        300: 3rem,
+        400: 4rem,
+        500: 5rem,
+        600: 6rem,
+        700: 7rem,
+        800: 8rem,
+        900: 9rem,
+    ),
+    large: (
+        50: 1rem,
+        100: 1.25rem,
+        200: 1.75rem,
+        300: 2rem,
+        400: 3rem,
+        500: 4rem,
+        600: 5rem,
+        700: 6rem,
+        800: 7rem,
+        900: 8rem,
+    )
+);
+
+:root {
+    // Font Size CSS Variables
+    // i.e. --fs-100
+    @each $screen-size, $font-size in $type-scale {
+        @if $screen-size == small {
+            @each $size, $value in $font-size {
+                --fs-#{$size}: #{$value};
+            }
+        } @else {
+            @include media('>=tablet') {
+                @each $size, $value in $font-size {
+                    --fs-#{$size}: #{$value};
+                }
+            }
+        }
+    }
+}
+
+// Font Size Utility Classes
+// i.e. class="fs-400"
+@each $screen-size, $font-size in $type-scale {
+    @if $screen-size == small {
+        @each $size, $value in $font-size {
+            .fs-#{$size} { font-size: #{$value} };
+        }
+    } @else {
+        @include media('>=tablet') {
+            @each $size, $value in $font-size {
+                .fs-#{$size} { font-size: #{$value} };
+            }
+        }
+    }
+}
+
+// 1.3 Font Weights
+// #font-weight
+// --------------------------------------------------------
+$font-weight: (
+    900: 900,
+    700: 700,
+    400: 400,
+    300: 300,
+    200: 200
+);
+
+:root {
+    // Font Weight CSS Variables
+    // i.e. --fw-400
+    @each $weight, $value in $font-weight {
+        --fw-#{$weight}: #{$value};
+    }
+}
+
+// Font Weight Utility Classes
+// i.e. class="fw-900"
+@each $weight, $value in $font-weight {
+    .fw-#{$weight} { font-weight: #{$value} };
+}
+
+// 1.4 Text Transformations
+// #text-transformations
+// --------------------------------------------------------
+$text-trans: (
+    upper: uppercase,
+    lower: lowercase,
+    caps: capitalize,
+    normal: normal
+);
+
+:root {
+    // Text Transformation CSS Variables
+    // i.e. --tt-upper
+    @each $trans, $value in $text-trans {
+        --tt-#{$trans}: #{$value};
+    }
+}
+
+// Text Transformation Utility Classes
+// i.e. class="tt-upper"
+@each $trans, $value in $text-trans {
+    .tt-#{$trans} { text-transform: #{$value} };
+}
+
+// 1.5 Alignment
+// #align
+// --------------------------------------------------------
+$text: (
+    left: left,
+    center: center,
+    right: right,
+);
+
+// Text Alignment Utility Classes
+// i.e. class="text-left"
+@each $align, $value in $text {
+    .text-#{$align} { text-align: #{$value} };
+}
+
+// 1.6 Flow Spacing
+// #flow #spacing
+// --------------------------------------------------------
+$flow-space: (
+    900: 8rem,
+    800: 7rem,
+    700: 6rem,
+    600: 5rem,
+    500: 4rem,
+    400: 3rem,
+    300: 2rem,
+    200: 1rem,
+    100: 0.5rem,
+    50: 0.25rem,
+    0: 0,
+);
+
+// Flow Space CSS Variables
+// i.e. --flow-med
+:root {
+    @each $flow, $value in $flow-space {
+        --flow-#{$flow}: #{$value};
+    }
+}
+
+// Flow Space Classes
+// i.e. class="flow-xxl"
+@each $flow, $value in $flow-space {
+    .m-all-#{$flow} { margin: #{$value} !important };
+    .m-b-#{$flow} { margin-bottom: #{$value} !important };
+    .m-r-#{$flow} { margin-right: #{$value} !important };
+    .m-l-#{$flow} { margin-left: #{$value} !important };
+    .m-t-#{$flow} { margin-top: #{$value} !important };
+    .p-all-#{$flow} { padding: #{$value} !important };
+    .p-b-#{$flow} { padding-bottom: #{$value} !important };
+    .p-r-#{$flow} { padding-right: #{$value} !important };
+    .p-l-#{$flow} { padding-left: #{$value} !important };
+    .p-t-#{$flow} { padding-top: #{$value} !important };
+}
+
+// 1.7 Opacity
+// #opacity
+// --------------------------------------------------------
+// i.e. --op-50
+$opacity: (
+    100: 1.0,
+    75: 0.75,
+    50: 0.50,
+    25: 0.25,
+);
+
+// Opacity Utility Classes
+// i.e. class="op-50"
+@each $op-setting, $value in $opacity {
+    .op-#{$op-setting} { opacity: #{$value} };
+}
+
+// 1.8 Border Width
+// #border-width
+// --------------------------------------------------------
+$border-width: (
+    xxl: 3rem,
+    xl: 2rem,
+    lg: 1rem,
+    med: .75rem,
+    sm: .25rem
+);
+// Border Width CSS Variables
+// i.e. --border-sm
+:root {
+    @each $width, $value in $border-width {
+        --border-#{$width}: #{$value};
+    }
+}
+
+// 1.9 Border Radius
+// #border-radius
+// --------------------------------------------------------
+$border-radius: (
+    xxl: 2rem,
+    xl: 1.5rem,
+    lg: 1rem,
+    med: 0.5rem,
+    sm: 0.25rem
+);
+// Border Radius CSS Variables
+// i.e. --radius-med
+:root {
+    @each $radius, $value in $border-radius {
+        --radius-#{$radius}: #{$value};
+    }
+}
+
+// 1.10 Minmax Width
+// #min #mid #max
+// --------------------------------------------------------
+$minmax: (
+    900: 100ch,
+    700: 80ch,
+    600: 70ch,
+    500: 60ch,
+    400: 50ch,
+    300: 40ch,
+    200: 30ch,
+    100: 20ch
+);
+// MinMax Width CSS Variables
+// i.e. --width-max
+:root {
+    @each $width, $value in $minmax {
+        --width-#{$width}: #{$value};
+    }
+}

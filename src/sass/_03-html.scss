@@ -1,0 +1,393 @@
+@use 'external-stylesheets/' as *;
+/* --------------------------------------------------------
+3.0 HTML Elements
+    ├── 3.1 Structure
+    ├── 3.2 Text
+    ├── 3.3 Anchors
+    ├── 3.4 Images
+    └── 3.5 Lists
+-------------------------------------------------------- */
+
+/* --------------------------------------------------------
+3.0 HTML Elements
+#html
+-------------------------------------------------------- */
+
+// 3.1  Structure
+// #structure
+// --------------------------------------------------------
+html {
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    scroll-padding-top: var(--flow-600);
+}
+
+body {
+    background-color: hsl( var(--clr-bg) / .50 );
+    color: hsl( var(--clr-black));
+    font-family: var(--ff-sans);
+    font-size: var(--fs-50);
+}
+
+// 3.2  Text
+// #text
+// --------------------------------------------------------
+h1, h2, h3, h4, h5, h6, p {
+    line-height: 125%;
+    margin-bottom: var(--flow-200); 
+}
+
+h1 { font-size: var(--fs-500); }
+h2 { font-size: var(--fs-400); }
+h3 { font-size: var(--fs-300); }
+h4 { font-size: var(--fs-200); }
+h5 { font-size: var(--fs-100); }
+h6 { font-size: var(--fs-50); }
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: var(--fw-900);
+
+    > a {
+        padding: var(--flow-100);
+    }
+}
+
+p { 
+    line-height: 200%; 
+}
+
+hr {
+    background-color: hsl( var(--clr-secondary) / .5 );
+    margin-bottom: var(--flow-200);
+    opacity: 0.25;
+}
+
+hr.h-rule {
+    @include h-rule;
+    @include center-margins;
+}
+
+// 3.3  Anchors
+// #anchors
+// --------------------------------------------------------
+a#anchor--home {
+    display: block;
+    height: 0;
+    margin: 0;
+    overflow: hidden;
+    padding: 0;
+    text-indent: -9999px;
+    width: 0;
+}
+
+a {
+    color: hsl( var(--clr-secondary ) );
+    display: inline-block;
+    line-height: normal;
+    position: relative;
+
+    &::after {
+        background-color: hsl( var(--clr-secondary) );
+        content: ('');
+        height: 3px;
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: -5px;
+        transition: transform 0.35s ease-in-out;
+        transform: scale(0, 1);
+        transform-origin: right bottom;
+        width: 100%;
+    }
+
+    &:hover::after {
+        transform: scale(1, 1);
+        transform-origin: left bottom;
+        transition: transform 0.45s ease-in-out;
+    }
+}
+
+// 3.4  Images
+// #images
+// --------------------------------------------------------
+img {
+
+    &.bg__img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        z-index: -2;
+        
+        &.cover {
+            object-fit: cover;
+        }
+
+        &.contain {
+            object-fit: contain;
+        }
+
+        &.bottom {
+            object-position: bottom;
+        }
+
+        &.center {
+            object-position: center;
+        }
+        
+        &.top {
+            object-position: top;
+        }
+    }
+
+    &.align-left {
+        float: left;
+        margin-bottom: var(--flow-200);
+        margin-right: var(--flow-200);
+    }
+
+    &.align-right {
+        float: right;
+        margin-bottom: var(--flow-200);
+        margin-left: var(--flow-200);
+    }
+
+    &.align-center {
+        float: none;
+        @include center-margins;
+    }
+}
+
+// 3.5  Lists
+// #ul #ol
+// --------------------------------------------------------
+ul, ol {
+    margin-bottom: var(--flow-200);
+    margin-top: var(--flow-200);
+
+    li {
+        margin-bottom: var(--flow-100);
+        padding-left: var(--flow-100);
+
+        &:last-of-type {
+            margin-bottom: 0 !important;
+        }
+
+        &::marker {
+            color: hsl( var(--clr-primary) / .5 );
+            font-weight: var(--fw-700);
+        }
+    }
+}
+
+ol {
+    list-style: decimal;
+
+    ol {
+        list-style: upper-alpha;
+
+        ol:first-of-type {
+            list-style: upper-roman;
+        }
+    }
+}
+
+ul {
+    list-style: disc;
+}
+
+// 3.6  Code
+// #pre #code
+// --------------------------------------------------------
+code {
+    background-color: hsl( var(--clr-black) / .1 );
+    border-radius: var(--flow-100);
+    display: inline-block;
+    padding-left: var(--flow-200);
+    padding-right: var(--flow-200);
+}
+
+pre {
+    background-color: hsl( var(--clr-primary) / .1 );
+    border-top-right-radius: var(--flow-100);
+    border-bottom-left-radius: var(--flow-100);
+    color: hsl( var(--clr-primary) );
+    display: grid;
+    margin-bottom: var(--flow-200);
+    position: relative;
+
+    code {
+        background-color: transparent;
+        display: block;
+        margin: 0;
+        overflow-y: hidden;
+        overflow-x: auto;
+        padding: var(--flow-400);
+        scrollbar-color: hsl( var(--clr-primary) ) hsl( var(--clr-primary) / .5 );
+        scrollbar-width: auto;
+        width: 100%;
+
+        &::-webkit-scrollbar-track {
+            background-color: hsl( var(--clr-primary) / .5 );
+        }
+    
+        &::-webkit-scrollbar-thumb {
+            background-color: hsl( var(--clr-primary) );
+            border-radius: var(--border-50);
+            border: 5px solid hsl( var(--color-primary) );
+        }
+    }
+
+    &::after {
+        background-color: hsl( var(--clr-primary) / .5 );
+        border-bottom-left-radius: var(--flow-50);
+        border-top-right-radius: var(--flow-50);
+        color: hsl( var(--clr-white) );
+        content: 'HTML';
+        display: block;
+        padding: var(--flow-50) var(--flow-100);
+        position: absolute;
+        right: 0;
+        top: 0;
+        text-transform: var(--tt-lower);
+    }
+
+    &::selection {
+        background-color: hsl( var(--clr-primary) );
+        color: hsl( var(--clr-primary) / .5 );
+    }
+
+    &.language-css,
+    &.language-sass,
+    &.language-scss {
+        background-color: hsl( var(--clr-tertiary) / .1 );
+        color: hsl( var(--clr-tertiary) );
+        scrollbar-color: hsl( var(--clr-tertiary) / .1 ) hsl( var(--clr-tertiary) );
+
+        &::after {
+            background-color: hsl( var(--clr-tertiary) );
+            content: 'CSS';
+        }
+
+        &::selection {
+            background-color: hsl( var(--clr-tertiary) );
+            color: hsl( var(--clr-tertiary) / .5 );
+        }
+
+        code {
+
+            &::-webkit-scrollbar-track {
+                background-color: hsl( var(--clr-tertiary) / .5 );
+            }
+        
+            &::-webkit-scrollbar-thumb {
+                background-color: hsl( var(--clr-tertiary) );
+                border-radius: var(--border-50);
+                border: 5px solid hsl( var(--clr-tertiary) );
+            }
+        }
+    }
+
+    &.language-sass,
+    &.language-scss {
+        &::after {
+            content: 'SCSS';
+        }   
+    }
+
+    &.language-javascript,
+    &.language-js {
+        background-color: hsl( var(--clr-quaternary) / .1 );
+        color: hsl( var(--clr-quaternary) );
+        scrollbar-color: hsl( var(--clr-quaternary) / .1 ) hsl( var(--clr-quaternary) );
+
+        &::after {
+            background-color: hsl( var(--clr-quaternary) );
+            content: 'Javascript';
+        }
+
+        &::selection {
+            background-color: hsl( var(--clr-quaternary) );
+            color: hsl( var(--clr-quaternary) / .5 );
+        }
+
+        code {
+
+            &::-webkit-scrollbar-track {
+                background-color: hsl( var(--clr-quaternary) / .5 );
+            }
+        
+            &::-webkit-scrollbar-thumb {
+                background-color: hsl( var(--clr-quaternary) );
+                border-radius: var(--border-50);
+                border: 5px solid hsl( var(--clr-quaternary) );
+            }
+        }
+    }
+
+    &.language-filemaker {
+        background-color: hsl( var(--clr-ok) / .2 );
+        color: hsl( var(--clr-ok) );
+        scrollbar-color: hsl( var(--clr-ok) / .2 ) hsl( var(--clr-ok) );
+        
+        &::after {
+            background-color: hsl( var(--clr-ok) );
+            content: 'FileMaker';
+        }
+
+        &::selection {
+            background-color: hsl( var(--clr-ok) );
+            color: hsl( var(--clr-ok) / .5 );
+        }
+
+        code {
+
+            &::-webkit-scrollbar-track {
+                background-color: hsl( var(--clr-ok) / .5 );
+            }
+        
+            &::-webkit-scrollbar-thumb {
+                background-color: hsl( var(--clr-ok) );
+                border-radius: var(--border-50);
+                border: 5px solid hsl( var(--clr-ok) );
+            }
+        }
+    }
+
+    &.language-sql,
+    &.language-ruby {
+        background-color: hsl( var(--clr-error) / .1 );
+        color: hsl( var(--clr-error) );
+        scrollbar-color: hsl( var(--clr-error) / .1 ) hsl( var(--clr-error) );
+
+        &::after {
+            background-color: hsl( var(--clr-error) );
+            content: 'SQL';
+        }
+
+        &::selection {
+            background-color: hsl( var(--clr-error) );
+            color: hsl( var(--clr-error) / .5 );
+        }
+
+        code {
+
+            &::-webkit-scrollbar-track {
+                background-color: hsl( var(--clr-error) / .5 );
+            }
+        
+            &::-webkit-scrollbar-thumb {
+                background-color: hsl( var(--clr-error) );
+                border-radius: var(--border-50);
+                border: 5px solid hsl( var(--clr-error) );
+            }
+        }
+    }
+
+    &.language-ruby {
+        &::after {
+            content: 'Ruby';
+        }
+    }
+}

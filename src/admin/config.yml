@@ -1,0 +1,27 @@
+backend:
+  name: git-gateway
+  branch: main
+
+publish_mode: editorial_workflow
+
+media_folder: "public/assets/uploads"
+public_folder: "/assets/uploads"
+
+# display_url: https://jammin.at
+# logo_url: https://jammin.at/assets/logo.svg
+
+collections:
+  - name: "blog"
+    label: "Blog"
+    folder: "src/blog"
+    create: true
+    slug: "{{year}}={{month}}-{{day}}-{{slug}}"
+    fields: 
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Article Excerpt", name: "description", widget: "string" }
+      - { label: "Author", name: "author", widget: "string", default: ["Mack Richardson"] }
+      - { label: "Date", name: "date", widget: "datetime" }
+      - { label: "Tags", name: "tags", widget: "list", default: ["post"] }
+      - { label: "Featured Image", name: "image", widget: "image" }
+      - { label: "Image Caption", name: "imageAlt", widget: "string" }
+      - { label: "Body", name: "body", widget: "markdown" }

@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Blog | Jammin&#39; to Eleventy</title>
+    <link rel="stylesheet" href="/css/destyle.css">
+    <link rel="stylesheet" href="/css/styles.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script defer src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+    <script src="https://kit.fontawesome.com/865e79b577.js" crossorigin="anonymous"></script>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-XXXXX-XX"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-XXXXX-XX');
+    </script>
+</head>
+<body class="site blog">
+
+    <header id="site__header">
+    <div class="brand">
+    <h1 class="brand__title"> 
+        <a href="/"><span>Jammin&#39; to Eleventy</span></a>
+    </h1>
+    <img src="/assets/logo.svg" alt="Jammin&#39; to Eleventy" class="logo">
+</div>
+    <input id="nav-toggle" class="nav-toggle" type="checkbox">
+<nav class="nav site-nav">
+    <ul role="list" class="nav__list"><li class="nav__item">
+            <a href="/" >Home</a>
+        </li><li class="nav__item">
+            <a href="/blog/"  data-state="active">Blog</a>
+        </li><li class="nav__item">
+            <a href="/helloworld/" >Test</a>
+        </li></ul>
+</nav>
+<label for="nav-toggle" class="nav-toggle-label"><span></span></label>
+</header>
+    
+
+
+
+<section id="jumbotron" class="container bg flow">
+    <div class="container__inner flow"><div class="page-header">
+            <h1 class="page-header__heading headline" data-highlight="primary">
+
+            
+            My Blog</h1><hr>
+            <p class="page-header__summary measure-long">
+            Enim nulla aliquet porttitor lacus luctus accumsan. Vulputate mi sit amet mauris commodo quis. Accumsan in nisl nisi scelerisque eu ultrices vitae auctor. Tellus pellentesque eu tincidunt tortor aliquam nulla facilisi cras.
+            </p></div></div>
+        <img class="bg__img cover bottom" src="/assets/backgrounds/library.jpg" alt="">
+    
+</section>
+
+    <main tabindex="-1" class="site__content" id="content">
+        <a name="home" id="anchor--home">Home</a>
+        
+
+
+
+
+
+
+
+  <section class="articles all" id="article-list">
+    <div class="container__inner flow grid">
+
+      
+<h2 class="text-center txc-black-50 fs-300 m-b-50">Tags</h2>
+<hr>
+<section class="tags flow flex">
+
+    
+        <a href="/tags/eleventy/" class="post-tag eleventy">#eleventy</a>
+
+    
+        <a href="/tags/tips/" class="post-tag tips">#tips</a>
+
+    
+        <a href="/tags/sass/" class="post-tag sass">#sass</a>
+
+    
+        <a href="/tags/css/" class="post-tag css">#css</a>
+
+    
+        <a href="/tags/html/" class="post-tag html">#html</a>
+
+</section>
+      
+      <ul role="list" class="articles__list flow">
+        
+             <li class="post-list__item leading-tight measure-long">
+    <div class="container__inner flow">
+        <article class="snippet">
+            <h3 class="snippet__title">
+                <a href="/blog/2021-05-01-my-first-article/">
+                    My First Article
+                </a>
+            </h3>
+            <hr>
+            <p class="snippet__meta meta">
+                <span class="meta__author">Mack Richardson</span> &bull; 
+                <span class="meta__date">Saturday, May 1, 2021</span> &bull; 
+                <span class="meta__tags">
+                    
+                    
+                    <a href="/tags/tips/" class="post-tag tips">#tips</a>
+                    
+                </span>
+            </p>
+            <p class="snippet__body">Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis accusantium sit illo neque rem omnis quaerat, nam similique vitae delectus ad magni vel quo maxime, magnam placeat. Reprehenderit, distinctio aliquam?</p>
+            <a href="/blog/2021-05-01-my-first-article/">Continue Reading <i class="fal fa-arrow-right"></i></a>
+        </article>
+        <aside><img src="/assets/uploads/article-1.jpg" alt="This is the image caption" class="snippet__image"></aside>
+    </div>
+</li>
+          </li>
+        
+      </ul>
+      
+      
+      
+        
+
+  <footer class="pagination dot-shadow panel bg-light-glare font-sans weight-bold">
+    <div>
+      <nav class="pagination__inner flex" aria-label="Pagination links">
+        
+          <a href="/blog/page/1/#post-list" data-direction="backwards" class="btn" rel="prev">
+            <span><i class="fas fa-arrow-left"></i> Newer posts</span>
+          </a>
+        
+        
+      </nav>
+    </div>
+  </footer>
+
+
+      
+          
+    </div>  
+  </section>
+
+
+         
+        
+
+ 
+  
+
+
+<section class="cta container">
+  <div class="container__inner flow">
+      <h2 class="cta__heading headline" data-highlight="quaternary">Get in touch if we seem like a good fit</h2>
+      <p class="cta__summary measure-short">Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec ullamcorper nulla non metus auctor fringilla.</p>
+      <div class="cta__action">
+        <a class="btn btn--primary alt invert" data-variant="ghost" href="">Start a new project</a>
+      </div>
+  </div>
+</section>
+    </main>
+    
+    <footer id="site__footer">
+    <section class="inner flow grid">
+        <div class="brand">
+    <h1 class="brand__title"> 
+        <a href="/"><span>Jammin&#39; to Eleventy</span></a>
+    </h1>
+    <img src="/assets/logo.svg" alt="Jammin&#39; to Eleventy" class="logo">
+</div>
+        <p class="m-t-200 m-b-0">&copy;1969&dash;2021 Mack Richardson dba Jammin&#39; to Eleventy</p>
+    </section>
+</footer>
+    <script src="/js/index.js"></script>
+<script src="/js/netlify-cms.js"></script>
+<script src="/js/int-observers.js"></script>
+<script src="/js/lazy-load.js"></script>
+
+</body>
+</html>

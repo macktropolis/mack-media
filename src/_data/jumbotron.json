@@ -1,0 +1,10 @@
+{
+    "headline": "J211ty [ Jammin' 2 11ty ]",
+    "copy": "J211ty [ Jammin' 2 11ty ] is a Jamstack site framework meant to get your site up and running quickly with Eleventy and SASS.",
+    "image": "/assets/logo.svg",
+    "imageAlt": "",
+    "bgImage": "/assets/backgrounds/code.jpg",
+    "bgImageAlt": "Code caption",
+    "buttonText": "Start a new project",
+    "buttonURL": "/contact/"
+}
