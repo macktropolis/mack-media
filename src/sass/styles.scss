@@ -1,0 +1,39 @@
+// Import Google Fonts (if that's your thing)
+@import url('https://fonts.googleapis.com/css2?family=Montaga&family=Montez&family=Montserrat:ital,wght@0,100;0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap');
+
+/*
+// Use @font-face if using locally stored web fonts instead of Google Fonts
+@font-face {
+    font-family: "Baloo 2";
+    font-style: normal;
+    font-weight: normal;
+    src: local("Baloo 2 Regular"), local("Baloo-2-Regular"),
+      url("../fonts/baloo-2-v1-latin-regular.woff2") format("woff2");
+    font-display: swap;
+  }
+  
+  @font-face {
+    font-family: "Baloo 2";
+    font-style: normal;
+    font-weight: 500;
+    src: local("Baloo 2 Medium"), local("Baloo-2-Medium"),
+      url("../fonts/baloo-2-v1-latin-500.woff2") format("woff2");
+    font-display: swap;
+  }
+  */
+
+:root {
+    // Font Family CSS Variables
+    --ff-display: 'Montez', cursive;
+    --ff-sans: 'Montserrat', sans-serif;
+    --ff-serif: 'Montaga', serif;
+    --ff-awesome: 'FontAwesome';
+}
+
+// Theme Styles
+@import "01-variables";
+@import "02-mixins";
+@import "03-html";
+@import "04-layout";
+@import "05-components";
+@import "06-blog";

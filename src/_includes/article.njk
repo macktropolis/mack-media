@@ -1,0 +1,31 @@
+---
+layout: 'base.njk'
+pageClass: 'article'
+---
+<section id="jumbotron" class="article__header container bg invert flow">
+    <div class="container__inner flow">
+        <article class="container__content flow">
+            <h1 class="article__title">{{ title }}</h1>
+            <hr>
+            <p class="article__meta meta">
+              Written by 
+              <span class="meta__author">{{ author }}</span> on 
+              <span class="meta__date">{{ date | postDate }}</span> 
+              <span class="meta__tags tags"> in &nbsp;
+                {%- for tag in tags | filterTagList -%}
+                {%- set tagUrl %}/tags/{{ tag | slug }}/{% endset -%}
+                <a href="{{ tagUrl | url }}" class="post-tag {{ tag | slug }}">{{ tag }}</a>
+                {%- endfor %}
+              </span>
+            </p>
+            <p class="article__description">{{ description }}</p>
+        </article>
+    </div>
+    <img class="bg__img cover op-50" src="{{ image }}" alt="{{ imgAlt }}">
+</section>
+
+<article class="main-article">
+  <div class="container__inner flow">
+      {{ content | safe }}
+  </div>
+</article>

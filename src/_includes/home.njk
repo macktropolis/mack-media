@@ -1,0 +1,19 @@
+---
+layout: 'base.njk'
+pageClass: 'home'
+---
+
+{% set postListItems = pagination.items %}
+
+{% include '_jumbotron.njk' %}
+
+{% block content %}
+    {{ content | safe }}
+{% endblock %}
+
+{% include '_articles-featured.njk' %}
+
+{% set ctaContent = primaryCTA %} 
+{% include "_cta.njk" %} 
+
+{% include '_articles-latest.njk' %}

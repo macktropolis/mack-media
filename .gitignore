@@ -1,0 +1,17 @@
+# Misc
+*.log
+npm-debug.*
+*.scssc
+*.swp
+.DS_Store
+Thumbs.db
+.sass-cache
+.env
+.cache
+.vscode
+notes.md
+#ToDo: Comment out the public directory if you're planning to integrate with Netlify CMS
+public
+
+# Node Modules and output
+node_modules

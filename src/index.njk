@@ -1,0 +1,12 @@
+---
+title: Homepage
+layout: 'home.njk'
+primaryCTA:
+  title: 'Digital Marketing is our bread & butter'
+  summary: 'Let us help you create the perfect campaign with our multi-faceted team of talented creatives.'
+  buttonText: 'See our work'
+  buttonUrl: '/work'
+  image: '/images/uploads/article-1.jpg'
+  imageAlt: 'Buttered toasted white bread'
+---
+

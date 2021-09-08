@@ -1,0 +1,19 @@
+{# Only renders this section if there are links to render #}
+{% if pagination.href.next or pagination.href.previous %}
+  <footer class="pagination dot-shadow panel bg-light-glare font-sans weight-bold">
+    <div>
+      <nav class="pagination__inner flex" aria-label="Pagination links">
+        {% if pagination.href.previous %}
+          <a href="{{ pagination.href.previous }}{{ paginationAnchor }}" data-direction="backwards" class="btn" rel="prev">
+            <span><i class="fas fa-arrow-left"></i> {{ paginationPrevText if paginationPrevText else 'Previous' }}</span>
+          </a>
+        {% endif %}
+        {% if pagination.href.next %}
+          <a href="{{ pagination.href.next }}{{ paginationAnchor }}" data-direction="forwards" class="btn" rel="next">
+            <span>{{ paginationNextText if paginationNextText else 'Next' }} <i class="fas fa-arrow-right"></i></span>
+          </a>
+        {% endif %}
+      </nav>
+    </div>
+  </footer>
+{% endif %}

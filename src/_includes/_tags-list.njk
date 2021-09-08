@@ -1,0 +1,6 @@
+<section class="tags flow flex">
+{% for tag in collections.tagList %}
+    {% set tagUrl %}/tags/{{ tag | slug }}/{% endset %}
+        <a href="{{ tagUrl | url }}" class="post-tag {{ tag | slug }}"># {{ tag }}</a>
+{% endfor %}
+</section>

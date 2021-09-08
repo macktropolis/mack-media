@@ -1,0 +1,127 @@
+@use 'external-stylesheets/' as *;
+/* --------------------------------------------------------
+3.0 HTML Elements
+    ├── 3.1 Structure
+    ├── 3.2 Text
+    ├── 3.3 Anchors
+    └── 3.4 Images
+-------------------------------------------------------- */
+
+/* --------------------------------------------------------
+3.0 HTML Elements
+#html
+-------------------------------------------------------- */
+
+// 3.1  Structure
+// #structure
+// --------------------------------------------------------
+html {
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    scroll-padding-top: 5rem;
+}
+
+body {
+    background-color: var(--clr-bw-25);
+    color: var(--clr-bw-700);
+    font-family: var(--ff-sans);
+    font-size: var(--fs-50);
+}
+
+// 3.2  Text
+// #text
+// --------------------------------------------------------
+h1, h2, h3, h4, h5, h6, p {
+    line-height: 150%;
+    margin-bottom: var(--flow-sm);
+}
+
+h1 { font-size: var(--fs-300); }
+h2 { font-size: var(--fs-200); }
+h3 { font-size: var(--fs-100); }
+h4, h5, h6 { font-size: calc( var(--fs-100) * .75 ); }
+
+p { 
+    line-height: 200%; 
+}
+
+hr {
+    background-color: var(--clr-bw-50);
+    margin-bottom: var(--flow-sm);
+    opacity: 0.25;
+}
+
+// 3.3  Anchors
+// #anchors
+// --------------------------------------------------------
+a#anchor--home {
+    display: block;
+    height: 0;
+    margin: 0;
+    overflow: hidden;
+    padding: 0;
+    text-indent: -9999px;
+    width: 0;
+}
+
+// 3.4  Images
+// #images
+// --------------------------------------------------------
+img {
+
+    &.bg__img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        z-index: 0;
+        
+        &.cover {
+            object-fit: cover;
+        }
+
+        &.contain {
+            object-fit: contain;
+        }
+    }
+}
+
+/* --------------------------------------------------------
+4.0 Layout
+#layout
+-------------------------------------------------------- */
+
+// 4.1  Flexbox
+// #flexbox
+// --------------------------------------------------------
+.flex {
+    display: flex;
+    align-items: center;
+    gap: var(--flow-lg);
+    flex-direction: row;
+    justify-content: center;
+}
+
+// 4.2  Flow
+// #flow
+// --------------------------------------------------------
+.flow {
+    margin-bottom: var(--flow-sm);
+    padding: var(--flow-med) var(--flow-sm);
+}
+
+// 4.3  Grid
+// #grid
+// --------------------------------------------------------
+.grid {
+    display: grid;
+    align-items: center;
+    gap: var(--flow-sm);
+    grid-template-columns: auto;
+    justify-content: center;
+
+    & > .center {
+        justify-self: center;
+    }
+}

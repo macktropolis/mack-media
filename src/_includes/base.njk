@@ -1,0 +1,18 @@
+{% include '_site-head.njk' %}
+<body class="site{% if pageClass %} {{pageClass}}{% endif %}">
+
+    {% include '_header.njk' %}
+
+    <main tabindex="-1" class="site__content" id="content">
+        <a name="home" id="anchor--home">Home</a>
+        {{ content | safe }}
+
+        {% set ctaContent = cta %} 
+        {% include '_cta.njk' %}
+    </main>
+    
+    {% include '_footer.njk' %}
+    {% include '_footer-scripts.njk' %}
+
+</body>
+</html>

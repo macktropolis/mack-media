@@ -1,0 +1,425 @@
+@use 'external-stylesheets/' as *;
+/* --------------------------------------------------------
+5.0 Components
+    ├── 5.1 Buttons
+    ├── 5.2 Brand
+    ├── 5.3 Call to Action
+    ├── 5.4 Jumbotron
+    ├── 5.5 Naviation
+    |   ├── 5.5.1 Current Page
+    |   ├── 5.5.2 Base Navigation
+    |   └── 5.5.3 Navigation for Tablet+ Screen Sizes
+    ├── 5.6 Pagination
+    ├── 5.7 Site Header
+    └── 5.8 Site Footer
+-------------------------------------------------------- */
+
+/* --------------------------------------------------------
+5.0 Components
+#components
+-------------------------------------------------------- */
+
+// 5.1 Buttons
+// #buttons
+// --------------------------------------------------------
+.btn {
+    background-color: var(--clr-secondary-100);
+    color: var(--clr-bw-0);
+    display: inline-block;
+    clear: both;
+    letter-spacing: 1px;
+    padding: var(--flow-sm) var(--flow-xl);
+    transition: all ease-in-out 255ms;
+    text-align: center;
+    text-decoration: none;
+    text-transform: var(--tt-upper);
+
+    &:hover {
+        background-color: var(--clr-secondary-700);
+    }
+
+    &.stop {
+        background-color: var(--clr-stop-400);
+        color: var(--clr-stop-50);
+        
+        &:hover {
+            background-color: var(--clr-stop-100);
+            color: var(--clr-stop-400);
+        }
+    }
+
+    &.go {
+        background-color: var(--clr-go-400);
+        color: var(--clr-go-50);
+
+        &:hover {
+            background-color: var(--clr-go-100);
+            color: var(--clr-go-700);
+        }
+    }
+    
+}
+
+// 5.2 Brand
+// #brand
+// --------------------------------------------------------
+.brand {
+
+    h1.brand__title {
+        opacity: 0;
+        overflow: hidden;
+        position: absolute;
+        left: -1000px;
+        top: -1000px;
+        height: 1px;
+        width: 1px;
+        text-indent: -1000px;
+    }
+
+    .logo {
+        color: var(--clr-bw-0);
+        height: auto;
+        max-width: 300px;
+    }
+}
+
+// 5.3 Call to Action
+// #cta
+// --------------------------------------------------------
+.cta {
+    background-color: none;
+
+    &:last-of-type {
+        background-color: var(--clr-bw-50);
+    }
+
+    & > .container__inner {
+        max-width: var(--width-max);
+    }
+}
+
+// 5.4 Jumbotron
+// #jumbotron
+// --------------------------------------------------------
+#jumbotron {
+    padding: 0;
+    padding-bottom: var(--flow-xxl);
+    padding-top: var(--flow-xxl);
+    
+    .container__inner {    
+        display: flex;
+        flex-direction: column-reverse;
+        max-width: var(--width-max);
+
+        aside > img {
+            height: 100%;
+            object-fit: contain;
+            width: 100%;
+        }
+    }
+
+    @include media('>=desktop') {
+        .container__inner {
+            flex-wrap: wrap;
+            flex-flow: row-reverse;
+
+            & > *:nth-child(1) {
+                flex: 1 1 70%;
+                min-width: 25ch;
+            }
+
+            & > *:nth-child(2) {
+                flex: 1 1 30%;
+                min-width: 15ch;
+            }
+        }
+    }
+
+    &.article__header {
+        padding-bottom: 0;
+        padding-top: 0;
+
+        .container__inner {
+            padding-bottom: var(--flow-sm);
+            padding-top: var(--flow-sm);
+        }
+    }
+}
+
+// 5.5 Navigation
+// #cta
+// --------------------------------------------------------
+
+// 5.5.1 Current Page
+// #current-page
+// --------------------------------------------------------
+.nav {
+
+    &__item {
+
+        [aria-current="page"] {
+            font-weight: var(--fw-900);
+        }
+    }
+}
+
+// 5.5.2 Base Navigation
+// #base-nav
+// --------------------------------------------------------
+.nav {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    text-align: left;
+    transform: scale(1, 0);
+    transform-origin: top;
+    transition: transform 400ms ease-in-out;
+    width: 100%;
+
+    &__list {
+        background-color: var(--clr-bw-800);
+        margin: 0;
+        padding: 0;
+        list-style: none;
+
+        li {
+            font-family: var(--ff-sans);
+            margin-bottom: 1rem;
+            margin-left: 1rem;
+
+            a {
+                color: var(--clr-bw-0);
+                display: block;
+                font-size: var(--fs-50);
+                opacity: 0;
+                transition: opacity 100ms ease-in-out;
+                text-decoration: none;
+                text-transform: var(--tt-upper);
+            }
+
+            a::before {
+                background-color: var(--clr-bw-900);
+            }
+
+            [aria-current="page"] {
+                font-weight: var(--fw-900);
+            }
+
+        }
+    }            
+}
+
+.nav-toggle {
+    display: none;
+}
+
+.nav-toggle:checked ~ nav {
+    transform: scale(1,1);
+
+    ul {
+        li {
+            a {
+                opacity: 1;
+                transition: opacity 250ms ease-in-out 250ms;
+            }
+        }
+    }
+}
+
+.nav-toggle:checked ~ .nav-toggle-label {
+    transform: rotate(-45deg);
+}
+
+.nav-toggle:checked ~ .nav-toggle-label {
+
+    span:before {
+        opacity: 0;
+        bottom: auto;
+    }
+
+    span:after {
+        transform: rotate(90deg);
+        top: auto;
+    }
+
+}
+
+.nav-toggle-label {
+    align-items: center;
+    display: flex;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin-left: 1rem;
+
+    span,
+    span:before,
+    span:after {
+        background-color: var(--clr-secondary-700);
+        border-radius: 2px;
+        display: block;
+        height: 5px;
+        position: relative;
+        transition: all ease-in-out 250ms;
+        width: 1.5rem;
+    }
+
+    span:before,
+    span:after {
+        content: '';
+        position: absolute;
+    }
+
+    span:before {
+        bottom: 10px;
+    }
+
+    span:after {
+        top: 10px;
+    }
+}
+
+// 5.5.3 Navigation for Tablets+ Screen Sizes
+// #nav-wide
+// --------------------------------------------------------
+@include media('>=tablet') {
+
+    nav.site-nav {
+        all: unset;
+        align-items: center;
+        grid-column: 2 / span 2;
+        grid-template-columns: 1fr 1fr;
+        display: flex;
+        justify-content: flex-end;
+        
+        ul {
+            background-color: transparent;
+            display: flex;
+
+            li {
+                margin-bottom: 0;
+                margin-left: var(--flow-sm);
+
+                a {
+                    color: var(--clr-secondary-700);
+                    opacity: 1;
+                    position: relative;
+                }
+
+                a:hover {
+                    color: var(--clr-secondary-900);
+                }
+
+                a::before {
+                    content: '';
+                    display: block;
+                    height: 10px;
+                    position: absolute;
+                    top: calc( var(--flow-med) * -1 );
+                    left: 0;
+                    right: 0;
+                    transform: scaleY(0);
+                    transform-origin: top;
+                    transition: transform ease-in-out 250ms;
+                }
+
+                a:hover::before {
+                    transform: scaleY(1);
+                    
+                }
+            }
+        }
+    }
+
+    .nav-toggle-label {
+        display: none;
+    }
+
+    #site__header.scrolled {
+        nav.site-nav {
+            ul {
+                li {
+                    a::before {
+                        top: calc( var(--flow-lg) * -1 );
+                    }
+                }
+            }
+        }
+    }
+}
+
+// 5.6 Pagination
+// #pagination
+// --------------------------------------------------------
+.pagination {
+    
+    &__inner.grid {
+        justify-content: start;
+        width: 100%;
+
+        a.btn[data-direction="forwards"] {
+            justify-self: start;
+        }
+
+        a.btn[data-direction="backwards"] {
+            justify-self: end;
+        }
+    }
+}
+
+// 5.7 Site Header
+// #site-header
+// --------------------------------------------------------
+header#site__header {
+    display: grid;
+    padding: 1rem 3rem;
+    position: fixed;
+    text-align: center;
+    @include media('>=tablet') {
+        text-align: left;
+    }
+    transition: all ease-in-out 255ms;
+    width: 100%;
+    z-index: 999;
+    
+    nav.site-nav {
+
+        ul {
+            padding: 0;
+
+            li {
+                padding: var(--flow-sm) calc(var(--flow-sm) * .5);
+            }
+        }
+    }
+
+    &.scrolled {
+        background-color: var(--clr-bw-0);
+        box-shadow: 0 0 1rem var(--clr-bw-600);
+        padding: var(--flow-med) var(--flow-sm);
+    }    
+
+}
+
+// 5.8 Site Footer
+// #site-footer
+// --------------------------------------------------------
+footer#site__footer {
+
+    section {
+        text-align: center;
+
+        &.grid {
+            gap: var(--flow-sm);
+        }
+
+        &.flow {
+            margin-bottom: 0;
+        }
+
+        .brand {
+            text-align: center;
+        }
+    }
+}

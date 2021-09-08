@@ -1,0 +1,348 @@
+@use 'external-stylesheets/' as *;
+/* --------------------------------------------------------
+1.0 Variables
+    ├── 1.1 Colors
+    ├── 1.2 Font Sizes
+    ├── 1.3 Font Weights
+    ├── 1.4 Text Transformations
+    ├── 1.5 Alignment
+    ├── 1.6 Flow Spacing
+    ├── 1.7 Opacity
+    ├── 1.8 Border Width
+    ├── 1.9 Border Radius
+    └── 1.10 MinMax Width
+-------------------------------------------------------- */
+
+/* --------------------------------------------------------
+1.0 Variables
+#variables
+-------------------------------------------------------- */
+
+// 1.1 Colors
+// #colors
+// --------------------------------------------------------
+$colors: (
+    primary: (
+        700: hsl(356, 58%, 20%),
+        400: hsl(356, 58%, 50%),
+        100: hsl(356, 58%, 80%),
+        50: hsl(356, 58%, 95%),
+    ),
+    secondary: (
+        700: hsl(183, 47%, 28%),
+        400: hsl(183, 47%, 43%),
+        100: hsl(183, 47%, 58%),
+        50: hsl(183, 47%, 90%),
+    ),
+    tertiary: (
+        700: hsl(25, 96%, 45%),
+        400: hsl(25, 96%, 60%),
+        100: hsl(25, 96%, 75%),
+        50: hsl(25, 96%, 95%),
+    ),
+    quaternary: (
+        700: hsl(260, 42%, 31%),
+        400: hsl(260, 42%, 46%),
+        100: hsl(260, 42%, 61%),
+        50: hsl(260, 42%, 95%),
+    ),
+    quinary: (
+        700: hsl(40, 96%, 12%),
+        400: hsl(40, 96%, 27%),
+        100: hsl(40, 96%, 42%),
+        50: hsl(40, 96%, 95%),
+    ),
+    senary: (
+        700: hsl(33, 49%, 4%),
+        400: hsl(33, 49%, 19%),
+        100: hsl(33, 49%, 34%),
+        50: hsl(33, 49%, 95%),
+    ),
+    bw: (
+        900: hsl(218, 12%, 0%),
+        800: hsl(218, 12%, 10%),
+        700: hsl(218, 12%, 20%),
+        600: hsl(218, 12%, 30%),
+        500: hsl(218, 12%, 40%),
+        400: hsl(218, 12%, 50%),
+        300: hsl(218, 12%, 60%),
+        200: hsl(218, 12%, 70%),
+        100: hsl(218, 12%, 80%),
+        75: hsl(218, 12%, 85%),
+        50: hsl(218, 12%, 90%),
+        25: hsl(218, 12%, 95%),
+        0: hsl(218, 12%, 100%),     
+    ),
+    stop: (
+        700: hsl(356, 58%, 20%),
+        400: hsl(356, 58%, 50%),
+        100: hsl(356, 58%, 80%),
+        50: hsl(356, 58%, 95%),
+    ),
+    caution: (
+        700: hsl(52, 86%, 38%),
+        400: hsl(52, 86%, 58%),
+        100: hsl(52, 86%, 78%),
+        50: hsl(52, 86%, 98%),
+    ),
+    go: (
+        700: hsl(80, 60%, 15%),
+        400: hsl(80, 60%, 35%),
+        100: hsl(80, 60%, 55%),
+        50: hsl(80, 60%, 75%),
+    ),
+);
+:root {
+    // Color CSS Variables
+    // i.e. --clr-primary-400
+    @each $color, $shades in $colors {
+        @each $shade, $value in $shades {
+            --clr-#{$color}-#{$shade}: #{$value};
+        }
+    }
+}
+// Color Utility Classes
+// i.e. Text Color: class="txc-bw-400"
+// i.e. Background Color: class="bgc-bw-400"
+@each $color, $shades in $colors {
+    @each $shade, $value in $shades {
+        .txc-#{$color}-#{$shade} { color: #{$value} };
+        .bgc-#{$color}-#{$shade} { background-color: #{$value} };
+    }
+}
+
+:root {
+    --clr-transparent: transparent;
+}
+
+.bgc-transparent {
+    background-color: transparent;
+}
+
+// 1.2 Font Sizes
+// #font-size
+// --------------------------------------------------------
+$type-scale: (
+    small: (
+        50: 1rem,
+        100: 1.5rem,
+        200: 1.75rem,
+        300: 2rem,
+        400: 3rem,
+        500: 4rem,
+        600: 5rem
+    ),
+    large: (
+        50: 1rem,
+        100: 1.5rem,
+        200: 2rem,
+        300: 3rem,
+        400: 4rem,
+        500: 5rem,
+        600: 6rem
+    )
+);
+
+:root {
+    // Font Size CSS Variables
+    // i.e. --fs-100
+    @each $screen-size, $font-size in $type-scale {
+        @if $screen-size == small {
+            @each $size, $value in $font-size {
+                --fs-#{$size}: #{$value};
+            }
+        } @else {
+            @include media('>=tablet') {
+                @each $size, $value in $font-size {
+                    --fs-#{$size}: #{$value};
+                }
+            }
+        }
+    }
+}
+
+// Font Size Utility Classes
+// i.e. class="fs-400"
+@each $screen-size, $font-size in $type-scale {
+    @if $screen-size == small {
+        @each $size, $value in $font-size {
+            .fs-#{$size} { font-size: #{$value} };
+        }
+    } @else {
+        @include media('>=tablet') {
+            @each $size, $value in $font-size {
+                .fs-#{$size} { font-size: #{$value} };
+            }
+        }
+    }
+}
+
+// 1.3 Font Weights
+// #font-weight
+// --------------------------------------------------------
+$font-weight: (
+    900: 900,
+    700: 700,
+    400: 400,
+    300: 300,
+    200: 200
+);
+
+:root {
+    // Font Weight CSS Variables
+    // i.e. --fw-400
+    @each $weight, $value in $font-weight {
+        --fw-#{$weight}: #{$value};
+    }
+}
+
+// Font Weight Utility Classes
+// i.e. class="fw-900"
+@each $weight, $value in $font-weight {
+    .fw-#{$weight} { font-weight: #{$value} };
+}
+
+// 1.4 Text Transformations
+// #text-transformations
+// --------------------------------------------------------
+$text-trans: (
+    upper: uppercase,
+    lower: lowercase,
+    caps: capitalize,
+    normal: normal
+);
+
+:root {
+    // Text Transformation CSS Variables
+    // i.e. --tt-upper
+    @each $trans, $value in $text-trans {
+        --tt-#{$trans}: #{$value};
+    }
+}
+
+// Text Transformation Utility Classes
+// i.e. class="tt-upper"
+@each $trans, $value in $text-trans {
+    .tt-#{$trans} { text-transform: #{$value} };
+}
+
+// 1.5 Alignment
+// #align
+// --------------------------------------------------------
+$text: (
+    left: left,
+    center: center,
+    right: right,
+);
+
+// Text Alignment Utility Classes
+// i.e. class="text-left"
+@each $align, $value in $text {
+    .text-#{$align} { text-align: #{$value} };
+}
+
+// 1.6 Flow Spacing
+// #flow #spacing
+// --------------------------------------------------------
+$flow-space: (
+    xxl: 5rem,
+    xl: 4rem,
+    lg: 3rem,
+    med: 2rem,
+    sm: 1rem,
+    xsm: 0.5rem,
+    zed: 0,
+    auto: "auto"
+);
+
+// Flow Space CSS Variables
+// i.e. --flow-med
+:root {
+    @each $flow, $value in $flow-space {
+        --flow-#{$flow}: #{$value};
+    }
+}
+
+// Flow Space Classes
+// i.e. class="flow-xxl"
+@each $flow, $value in $flow-space {
+    .m-all-#{$flow} { margin: #{$value} };
+    .m-bm-#{$flow} { margin-bottom: #{$value} };
+    .m-rt-#{$flow} { margin-right: #{$value} };
+    .m-lt-#{$flow} { margin-left: #{$value} };
+    .m-tp-#{$flow} { margin-top: #{$value} };
+    .p-all-#{$flow} { padding: #{$value} };
+    .p-bm-#{$flow} { padding-bottom: #{$value} };
+    .p-rt-#{$flow} { padding-right: #{$value} };
+    .p-lt-#{$flow} { padding-left: #{$value} };
+    .p-tp-#{$flow} { padding-top: #{$value} };
+}
+
+// 1.7 Opacity
+// #opacity
+// --------------------------------------------------------
+// i.e. --op-50
+$opacity: (
+    100: 1.0,
+    75: 0.75,
+    50: 0.50,
+    25: 0.25,
+);
+
+// Opacity Utility Classes
+// i.e. class="op-50"
+@each $op-setting, $value in $opacity {
+    .op-#{$op-setting} { opacity: #{$value} };
+}
+
+// 1.8 Border Width
+// #border-width
+// --------------------------------------------------------
+$border-width: (
+    xxl: 3rem,
+    xl: 2rem,
+    lg: 1rem,
+    med: .75rem,
+    sm: .25rem
+);
+// Border Width CSS Variables
+// i.e. --border-sm
+:root {
+    @each $width, $value in $border-width {
+        --border-#{$width}: #{$value};
+    }
+}
+
+// 1.9 Border Radius
+// #border-radius
+// --------------------------------------------------------
+$border-radius: (
+    xxl: 2rem,
+    xl: 1.5rem,
+    lg: 1rem,
+    med: 0.5rem,
+    sm: 0.25rem
+);
+// Border Radius CSS Variables
+// i.e. --radius-med
+:root {
+    @each $radius, $value in $border-radius {
+        --radius-#{$radius}: #{$value};
+    }
+}
+
+// 1.10 Minmax Width
+// #min #mid #max
+// --------------------------------------------------------
+$minmax: (
+    max: 100ch,
+    mid: 50ch,
+    min: 25ch
+);
+// MinMax Width CSS Variables
+// i.e. --width-max
+:root {
+    @each $width, $value in $minmax {
+        --width-#{$width}: #{$value};
+    }
+}

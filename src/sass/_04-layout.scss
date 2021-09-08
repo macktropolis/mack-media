@@ -1,0 +1,125 @@
+@use 'external-stylesheets/' as *;
+/* --------------------------------------------------------
+4.0 Layout
+    ├── 4.1 Flexbox
+    ├── 4.2 Floats
+    ├── 4.3 Flow
+    └── 4.4 Grid
+-------------------------------------------------------- */
+
+/* --------------------------------------------------------
+4.0 Layout
+#layout
+-------------------------------------------------------- */
+
+// 4.1  Flexbox
+// #flexbox
+// --------------------------------------------------------
+.flex {
+    display: flex;
+    align-items: center;
+    gap: var(--flow-lg);
+    flex-direction: row;
+    justify-content: center;
+}
+
+// 4.2 Floats
+// #floats
+// --------------------------------------------------------
+.float {
+    display: block;
+    float: none;
+    margin-bottom: var(--flow-sm);
+    margin-top: var(--flow-sm);
+
+    @include media('>=tablet') {
+        float: left;
+        margin-right: var(--flow-med);
+        width: 40%;
+    }
+
+    &.right {
+        @include media('>=tablet') {
+            float: right;
+            margin-left: var(--flow-lg);
+            margin-right: 0;
+        }
+    }
+
+    & > img {
+        display: block;
+        height: 100%;
+        object-position: contain;
+        width: 100%;
+    }
+
+    .caption {
+        color: var(--clr-bw-400);
+        font-style: oblique;
+        display: block;
+        text-align: center;
+    }
+}
+
+// 4.3  Flow
+// #flow
+// --------------------------------------------------------
+.flow {
+    margin-bottom: var(--flow-sm);
+    padding: var(--flow-med) var(--flow-sm);
+}
+
+// 4.4  Grid
+// #grid
+// --------------------------------------------------------
+.grid {
+    display: grid;
+    align-items: center;
+    gap: var(--flow-sm);
+    grid-template-columns: auto;
+    justify-content: center;
+
+    & > .center {
+        justify-self: center;
+    }
+}
+
+// 4.5  Site Content
+// #site-content
+// --------------------------------------------------------
+.site__content {
+    padding-top: calc( var( --flow-xxl ) * 1 );
+    width: 100%;
+
+    & > section {
+        .container {
+            padding: var( --flow-xxl );
+            @include center-margins;
+        }
+    }
+}
+
+// 4.6  Container Wrapper
+// #container #wrapper
+// --------------------------------------------------------
+.container {
+    padding: 0;
+    position: relative;
+
+    &.bg {
+        background-color: var(--clr-bw-900);
+
+        &.invert {
+            color: var(--clr-bw-0);
+        }
+    }
+
+    &__inner {
+        padding: var( --flow-xl );
+        position: relative;
+        width: 100%;
+        z-index: 1;
+
+        @include center-margins;
+    }
+}

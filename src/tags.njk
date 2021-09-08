@@ -1,0 +1,22 @@
+---
+layout: 'articles-feed.njk'
+pagination:
+  data: collections
+  size: 1
+  alias: tag
+  filter:
+    - all
+    - featured
+    - pages
+eleventyComputed:
+  title: Tagged “{{ tag }}”
+permalink: /tags/{{ tag }}/
+---
+<h1>Tagged “{{ tag }}”</h1>
+
+<ol role="list">
+{% set taglist = collections.blog[ tag ] %}
+{% for post in taglist | reverse %}
+  <li><a href="{{ post.url | url }}">{{ post.data.title }}</a></li>
+{% endfor %}
+</ol>

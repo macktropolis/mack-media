@@ -1,0 +1,19 @@
+{% set jumbotronPrefix = jumbotron %}
+
+{% if jumbotronContent %} 
+  {% set jumbotronPrefix = jumbotronContent %}
+{% endif %}
+
+<section id="jumbotron" class="container bg invert flow">
+    <div class="container__inner flow">
+        <article class="container__content flow">
+            <h1>{{ jumbotronPrefix.headline }}</h1>
+            <p>{{ jumbotronPrefix.copy }}</p>
+            <a href="{{ jumbotronPrefix.buttonURL }}" class="btn btn--primary">{{ jumbotronPrefix.buttonText }}</a>
+        </article>
+        <aside>
+            <img src="{{ jumbotronPrefix.image }}" alt="{{ jumbotronPrefix.imageAlt }}">
+        </aside>
+    </div>
+    <img class="bg__img cover op-25" src="{{ jumbotronPrefix.bgImage }}" alt="{{ jumbotronPrefix.bgImageAlt }}">
+</section>

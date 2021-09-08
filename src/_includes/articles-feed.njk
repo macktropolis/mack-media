@@ -1,0 +1,43 @@
+---
+layout: 'base.njk'
+pageClass: 'blog'
+---
+{% set pageHeaderTitle = title %}
+{% set pageHeaderSummary = content %}
+{% set postListItems = pagination.items %}
+
+{# If this is a tag, grab those items instead as one large collection #}
+{% if tag %}
+  {% set postListItems = collections[tag] %}
+  {% set pageHeaderTitle = 'Articles filed under &ldquo;' + tag + '&rdquo;' %}
+{% endif %}
+
+{% block content %}
+  {% include "_page-header.njk" %}
+
+  <section class="articles all" id="article-list">
+    <div class="container__inner flow grid">
+
+      {{ content | safe }}
+      
+      {% if postListHeadline %}
+      <h2 class="headline measure-micro" data-highlight="primary">
+        {{ postListHeadline }}
+      </h2>
+      {% endif %}
+        <ul role="list" class="articles__list flow">
+          {% for item in postListItems %}
+              {% include '_article-snippet.njk' %}
+            </li>
+          {% endfor %}
+        </ul>
+        
+        {# If we leave pagination in for tags, the next and prev links will 
+        link to tags and be rather confusing, so don't render in that situation #}
+        {% if not tag %}
+          {% include '_pagination.njk' %}
+        {% endif %}
+          
+    </div>  
+  </section>
+{% endblock %}

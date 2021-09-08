@@ -1,0 +1,10 @@
+<section class="articles featured" id="test">
+    <div class="container__inner flow">
+        <h2 class="section-title text-center tt-upper">Featured Article</h2>
+        <ul role="list" class="articles__list flow">
+            {%- for item in collections.featured |  limitTo(1) -%}
+                {% include '_article-snippet.njk' %}
+            {%- endfor -%}
+        </ul>
+    </div>
+</section>
