@@ -3,8 +3,16 @@ layout: 'base.njk'
 pageClass: 'page'
 ---
 
-{% block content %}
-<div class="container__inner flow">
-    {{ content | safe }}
-</div>
-{% endblock %}
+<section class="articles all">
+    <ul role="list" class="articles__list flow">
+        <li class="post-list__item leading-tight measure-long">
+            <div class="container__inner flow word-balloon page single">
+                <article class="snippet" role="article">
+                    {% block content %}
+                        {{ content | safe }}
+                    {% endblock %}
+                </article>
+            </div>
+        </li>
+    </ul>
+</section>

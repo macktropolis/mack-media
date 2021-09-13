@@ -3,10 +3,11 @@
 //
 // IntObs: Change Header Style on Scroll
 
-const header = document.querySelector("header#site__header");
+// const header = document.querySelector("header#site__header");
 const sectionOne = document.querySelector("#anchor--home");
 const faders = document.querySelectorAll(".fade-in");
 
+/*
 const sectionOneOptions = {
 	rootMargin: "20px 0px 0px 0px"
 };
@@ -28,6 +29,7 @@ const sectionOneObserver = new IntersectionObserver
 sectionOneOptions);
 
 sectionOneObserver.observe(sectionOne);
+*/
 
 // IntObs: Fade Items into view when scrolling
 const appearOptions = {

@@ -9,9 +9,5 @@ pageClass: 'home'
     {{ content | safe }}
 {% endblock %}
 
-{% include '_articles-featured.njk' %}
-
-{% set ctaContent = primaryCTA %} 
-{% include "_cta.njk" %} 
-
-{% include '_articles-latest.njk' %}
+{# include '_articles-featured.njk' #}
+{% include '_articles-all.njk' %}

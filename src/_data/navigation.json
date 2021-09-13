@@ -5,12 +5,8 @@
       "url": "/"
     },
     {
-      "text": "Blog",
-      "url": "/blog/"
-    },
-    {
-      "text": "Test",
-      "url": "/helloworld/"
+      "text": "About",
+      "url": "/about/"
     }
   ]
 }

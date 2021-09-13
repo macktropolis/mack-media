@@ -12,24 +12,19 @@ pageClass: 'blog'
 {% endif %}
 
 {% block content %}
-  <section class="articles all" id="article-list">
-    <div class="container__inner flow grid">
+  {{ content | safe }}
 
-      {{ content | safe }}
-      
-      <ul role="list" class="articles__list flow">
+  <section class="articles all">
+    <ul role="list" class="articles__list flow">
         {% for item in postListItems %}
             {% include '_article-snippet.njk' %}
-          </li>
-        {% endfor %}
-      </ul>
-      
-      {# If we leave pagination in for tags, the next and prev links will 
-      link to tags and be rather confusing, so don't render in that situation #}
-      {% if not tag %}
-        {% include '_pagination.njk' %}
-      {% endif %}
-          
-    </div>  
+        {%- endfor -%}
+    </ul>
   </section>
+  
+  {# If we leave pagination in for tags, the next and prev links will 
+  link to tags and be rather confusing, so don't render in that situation #}
+  {% if not tag %}
+    {% include '_pagination.njk' %}
+  {% endif %}
 {% endblock %}

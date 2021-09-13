@@ -1,16 +1,14 @@
-@use 'external-stylesheets/' as *;
+@use 'helpers/' as *;
 /* --------------------------------------------------------
 3.0 HTML Elements
     ├── 3.1 Structure
     ├── 3.2 Text
     ├── 3.3 Anchors
     ├── 3.4 Images
-    └── 3.5 Lists
--------------------------------------------------------- */
-
-/* --------------------------------------------------------
-3.0 HTML Elements
-#html
+    ├── 3.5 Lists
+    ├── 3.6 Code
+    ├── 3.7 Buttons
+    └── 3.10 Classes
 -------------------------------------------------------- */
 
 // 3.1  Structure
@@ -23,10 +21,12 @@ html {
 }
 
 body {
-    background-color: hsl( var(--clr-bg) / .50 );
-    color: hsl( var(--clr-black));
+    background-color: hsl( var(--clr-white) / .1 );
+    color: hsl( var(--clr-black) / .8 );
     font-family: var(--ff-sans);
     font-size: var(--fs-50);
+
+    @include add-noise;
 }
 
 // 3.2  Text
@@ -45,6 +45,7 @@ h5 { font-size: var(--fs-100); }
 h6 { font-size: var(--fs-50); }
 
 h1, h2, h3, h4, h5, h6 {
+    font-family: var(--ff-display);
     font-weight: var(--fw-900);
 
     > a {
@@ -53,12 +54,24 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 p { 
+    font-weight: var(--fw-400);
     line-height: 200%; 
 }
 
-hr {
-    background-color: hsl( var(--clr-secondary) / .5 );
+blockquote {
+    background-color: hsl( var(--clr-black) / .1 );
+    border-left: var(--flow-200) solid hsl( var(--clr-secondary) );
     margin-bottom: var(--flow-200);
+    padding: var(--flow-100) var(--flow-100) var(--flow-100) var(--flow-300);
+
+    p:last-of-type {
+        margin: 0;
+    }
+}
+
+hr {
+    background-color: hsl( var(--clr-black) / .1 );
+    box-shadow: -1px -1px 0 hsl( var(--clr-black) / .3 );
     opacity: 0.25;
 }
 
@@ -82,6 +95,7 @@ a#anchor--home {
 
 a {
     color: hsl( var(--clr-secondary ) );
+    cursor: auto;
     display: inline-block;
     line-height: normal;
     position: relative;
@@ -390,4 +404,58 @@ pre {
             content: 'Ruby';
         }
     }
+}
+
+// 3.7 Buttons
+// #buttons
+// --------------------------------------------------------
+.btn {
+    background-color: hsl( var(--clr-secondary) / .7 );
+    color: hsl( var(--clr-white));
+    display: inline-block;
+    font-weight: 900;
+    margin: 1rem 0 .5rem 0;
+    padding: .5rem 2rem;
+    position: relative;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: all ease-in-out 255ms;
+
+    &::after {
+        background-color: transparent;
+        border: 2px solid var(--clr-secondary);
+        content: '';
+        position: absolute;
+        top: -4px;
+        left: -4px;
+        height: 90%;
+        transition: all ease-in-out 255ms;
+        width: 98%;
+    }
+
+    &:hover {
+        background-color: hsl( var(--clr-secondary));
+        color: var(--clr-white);
+        text-shadow: -1px -1px 0 hsl( var(--clr-black) / .1);
+
+        &::after {
+            top: 0;
+            left: 0;
+        }
+    } 
+}
+
+// 3.10 Classes
+// #classes
+// --------------------------------------------------------
+i.fas {
+    color: hsl( var(--clr-black) / .3);
+}
+
+.no-margin {
+    margin: 0 !important;
+}
+
+.no-padding {
+    padding: 0 !important;
 }

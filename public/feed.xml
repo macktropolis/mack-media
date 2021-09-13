@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title></title>
   <subtitle></subtitle>
-  <link href="https://jammin.at/feed.xml" rel="self"/>
-  <link href="https://jammin.at"/>
+  <link href="https://mackrichardson.com/feed.xml" rel="self"/>
+  <link href="https://mackrichardson.com"/>
   <updated>2021-07-01T00:00:00Z</updated>
-  <id>https://jammin.at</id>
+  <id>https://mackrichardson.com</id>
   <author>
     <name>Mack Richardson</name>
     <email>mack@mackrichardson.com</email>

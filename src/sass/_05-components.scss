@@ -1,4 +1,4 @@
-@use 'external-stylesheets/' as *;
+@use 'helpers/' as *;
 /* --------------------------------------------------------
 5.0 Components
     ├── 5.2 Brand
@@ -18,31 +18,34 @@
 // #brand
 // --------------------------------------------------------
 .brand {
-    display: flex;
     align-items: center;
+    display: flex;
+    padding-left: var(--flow-200);
+    padding-right: var(--flow-200);
     text-align: center;
 
-    h1.brand__title {
-        opacity: 0;
-        overflow: hidden;
-        position: absolute;
-        left: -1000px;
-        top: -1000px;
-        height: 1px;
-        width: 1px;
-        text-indent: -1000px;
-    }
-
-    .logo {
-        filter: invert(22%) sepia(36%) saturate(3020%) hue-rotate(328deg) brightness(121%) contrast(94%);
-        height: auto;
-        max-width: 175px;
-
-        @include center-margins;
-
-        @include media('>tablet') {
-            margin-left: 0;
-        }
+    &#logo {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        height: var(--sidebar-width);
+        justify-content: center;
+        width: 100%;
+        
+        .rays {
+            animation: rotateCircle 45s linear reverse infinite;
+            position: absolute;
+            top: 0;
+            transform-origin: 50% 50%;
+            width: var(--sidebar-width);
+            z-index: -10;
+        } // .rays
+        
+        img {
+            display: block;
+            height: auto;
+            width: 125px;
+        } // img
     }
 }
 
@@ -173,7 +176,7 @@
     &__item {
 
         [aria-current="page"] {
-            font-weight: var(--fw-900);
+            color: hsl( var(--clr-secondary));
         }
     }
 }
@@ -181,201 +184,85 @@
 // 5.5.2 Base Navigation
 // #base-nav
 // --------------------------------------------------------
-.nav {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    text-align: left;
-    transform: scale(1, 0);
-    transform-origin: top;
-    transition: transform 400ms ease-in-out;
+nav.site-nav {
+    align-items: center;
+    grid-column: 2 / span 2;
+    grid-template-columns: 1fr 1fr;
+    display: flex;
+    justify-content: flex-end;
+    
+    ul {
+        background-color: transparent;
+        list-style-type: none;
+        display: flex;
+
+        li {
+            font-size: var(--fs-100);
+            font-weight: var(--fw-900);
+            margin: 0;
+            padding: 0 var(--flow-200);
+            text-align: center;
+
+            a {
+                color: hsl( var(--clr-black) / .7 );
+                opacity: 1;
+                position: relative;
+            }
+
+            a:hover {
+                color: hsl( var(--clr-secondary));
+            }
+        }
+    }
+}
+
+// 5.6 Content Topper
+// #topper
+// --------------------------------------------------------
+.topper {
+    position: relative;
     width: 100%;
 
-    &__list {
-        margin: 0;
-        padding: 0;
-        list-style: none;
-
-        li {
-            font-family: var(--ff-sans);
-
-            a {
-                color: hsl( var(--clr-white) );
-                display: block;
-                font-size: var(--fs-50);
-                opacity: 0;
-                transition: opacity 100ms ease-in-out;
-                text-align: center;
-                text-decoration: none;
-                text-transform: var(--tt-upper);
-            }
-
-            a::before {
-                background-color: hsl( var(--clr-white) );
-            }
-
-            a::after {
-                display: none;
-            }
-
-            [aria-current="page"] {
-                font-weight: var(--fw-900);
-
-                &::before {
-                    height: 20px;
-                    transform: scaleY(1);
-                }
-            }
-
-        }
-    }            
-}
-
-.nav-toggle {
-    display: none;
-}
-
-.nav-toggle:checked ~ nav {
-    background-color: hsl( var(--clr-white) );
-    box-shadow: 0 0 var(--flow-100) hsl( var(--clr-black) );
-    transform: scale(1,1);
-
-    ul {
-        li {
-            a {
-                opacity: 1;
-                transition: opacity 250ms ease-in-out 250ms;
-            }
-        }
-    }
-}
-
-.nav-toggle:checked ~ .nav-toggle-label {
-    transform: rotate(-45deg);
-}
-
-.nav-toggle:checked ~ .nav-toggle-label {
-
-    span:before {
-        opacity: 0;
-        bottom: auto;
+    @include media('>=tablet') {
+        position: sticky;
+        margin-left: -50px;
+        top: 0;
+        max-width: 110ch;
+        z-index: 10;
     }
 
-    span:after {
-        transform: rotate(90deg);
-        top: auto;
-    }
-
-}
-
-.nav-toggle-label {
-    align-items: center;
-    display: flex;
-    height: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    margin-left: 1rem;
-
-    span,
-    span:before,
-    span:after {
-        background-color: hsl( var(--clr-white) );
-        border-radius: 2px;
-        display: block;
-        height: 5px;
-        position: relative;
-        transition: all ease-in-out 250ms;
-        width: 1.5rem;
-    }
-
-    span:before,
-    span:after {
+    &::before {
+        background-color: transparent;
+        box-shadow: 0 0 5px hsl( var(--clr-black) / .5);
         content: '';
-        position: absolute;
-    }
-
-    span:before {
-        bottom: 10px;
-    }
-
-    span:after {
-        top: 10px;
-    }
-}
-
-#site__header.scrolled {
-    .nav-toggle-label {
-        span,
-        span:before,
-        span:after {
-            background-color: hsl( var(--clr-white) );
-        }
-    }
-}
-
-// 5.5.3 Navigation for Tablets+ Screen Sizes
-// #nav-wide
-// --------------------------------------------------------
-@include media('>=tablet') {
-
-    nav.site-nav {
-        all: unset;
-        align-items: center;
-        grid-column: 2 / span 2;
-        grid-template-columns: 1fr 1fr;
-        display: flex;
-        justify-content: flex-end;
-        
-        ul {
-            background-color: transparent;
-            display: flex;
-
-            li {
-                margin-bottom: 0;
-                margin-left: var(--flow-200);
-
-                a {
-                    opacity: 1;
-                    position: relative;
-                }
-
-                a::before {
-                    background-color: hsl( var(--clr-white) );
-                    content: '';
-                    display: block;
-                    height: 10px;
-                    position: absolute;
-                    top: calc( var(--flow-400) * -1 );
-                    left: 0;
-                    right: 0;
-                    transform: scaleY(0);
-                    transform-origin: top;
-                    transition: transform ease-in-out 250ms;
-                }
-
-                a:hover::before {
-                    transform: scaleY(1);
-                    
-                }
-            }
-        }
-    }
-
-    .nav-toggle-label {
         display: none;
+        height: 5px;
+        position: absolute;
+        left: 20px;
+        right: 20px;
+        bottom: 0;
+        z-index: -1;
+
+        @include media('>=tablet') {
+            display: block;
+        }
     }
 
-    #site__header.scrolled {
+    section {
+        background-color: hsl( var(--clr-white) );
+        color: hsl( var(--clr-black) / .5);
+        text-align: center;
+        text-shadow: 1px 1px 0 hsl( var(--clr-white) / 1);
+        width: 99.5%;
 
-        nav.site-nav {
-            ul {
-                li {
-                    a::before {
-                        top: calc( var(--flow-400) * -1 );
-                    }
-                }
-            }
+        @include add-noise;
+
+        &.grid {
+            gap: var(--flow-sm);
+        }
+
+        &.flow {
+            margin-bottom: 0;
         }
     }
 }

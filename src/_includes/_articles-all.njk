@@ -1,0 +1,7 @@
+<section class="articles all">
+    <ul role="list" class="articles__list flow">
+        {%- for item in collections.blog -%}
+            {% include '_article-snippet.njk' %}
+        {%- endfor -%}
+    </ul>
+</section>

@@ -2,9 +2,27 @@
 layout: 'base.njk'
 pageClass: 'article'
 ---
-
-<article class="main-article">
-  <div class="container__inner flow">
-      {{ content | safe }}
-  </div>
-</article>
+<section class="articles">
+  <ul role="list" class="articles__list flow">
+    <li class="post-list__item leading-tight measure-long">
+      <div class="container__inner flow word-balloon single">
+        <article class="main-article">
+          <h3 class="snippet__title">{{ title }}</h3>
+          <hr>
+          {{ content | safe }}
+        </article>
+      </div>
+      <p class="snippet__meta meta">
+          <span class="meta__author"><i class="fas fa-typewriter"></i></i> {{ author }}</span>
+          <span class="meta__date"><i class="fas fa-clock"></i> {{ date | htmlDateString }}</span>
+          <span class="meta__tags">
+            <i class="fas fa-tags"></i> 
+            {% for tag in tags | filterTagList %}
+            {% set tagUrl %}/tags/{{ tag | slug }}/{% endset %}
+            <a href="{{ tagUrl | url }}" class="post-tag {{ tag | slug }}">#{{ tag }}</a>
+            {% endfor %}
+          </span>
+      </p>
+    </li>
+  </ul>
+</section>

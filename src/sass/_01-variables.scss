@@ -1,4 +1,4 @@
-@use 'external-stylesheets/' as *;
+@use 'helpers/' as *;
 /* --------------------------------------------------------
 1.0 Variables
     ├── 1.1 Colors
@@ -13,17 +13,12 @@
     └── 1.10 MinMax Width
 -------------------------------------------------------- */
 
-/* --------------------------------------------------------
-1.0 Variables
-#variables
--------------------------------------------------------- */
-
 // 1.1 Colors
 // #colors
 // --------------------------------------------------------
 :root {
     --clr-primary: 0 0% 10%;
-    --clr-secondary: 356 58% 50%;
+    --clr-secondary: 186 63% 48%;
     --clr-tertiary: 25 96% 60%;
     --clr-quaternary: 260 42% 46%;
     --clr-quinary: 40 96% 27%;
@@ -31,7 +26,7 @@
     --clr-bg: 218 12% 90%;
     --clr-surface: 218 12% 50%;
     --clr-black: 218 12% 10%;
-    --clr-white: 218 12% 90%;
+    --clr-white: 100 100% 100%;
     --clr-error: 356 58% 50%;
     --clr-warning: 52 86% 58%;
     --clr-ok: 80 60% 35%;
@@ -337,12 +332,16 @@ $minmax: (
     400: 50ch,
     300: 40ch,
     200: 30ch,
-    100: 20ch
+    100: 20ch,
+    auto: 100%
 );
 // MinMax Width CSS Variables
 // i.e. --width-max
 :root {
     @each $width, $value in $minmax {
         --width-#{$width}: #{$value};
+        .width-#{$width} { width: #{$value} };
+        .max-width-#{$width} { width: #{$value} };
+        .min-width-#{$width} { width: #{$value} };
     }
 }

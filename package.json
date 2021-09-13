@@ -27,5 +27,8 @@
     "gulp": "^4.0.2",
     "nunjucks": "^3.2.3",
     "sass": "^1.35.1"
+  },
+  "dependencies": {
+    "@fancyapps/ui": "^4.0.2"
   }
 }
