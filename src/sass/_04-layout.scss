@@ -100,16 +100,26 @@
 
         @include center-margins;
 
-        & >  #site__header { flex: 1 1 30%; }
-        & > .site__content { flex: 1 1 70%; }
+        & > #site__header { flex: 1 1 30%; }
+        & > #site__content { flex: 1 1 70%; }
+    }
+
+    @include media('>=desktop') {
+        & > #site__header { flex: 1 1 40%; }
+        & > #site__content { flex: 1 1 60%; }
     }
 }
 
 // 4.5  Site Content
-// #site-content
+// #content
 // --------------------------------------------------------
-.site__content {
+#content {
     position: relative;
+
+    @include media('>=tablet') {
+        max-width: 100ch;
+        width: 90%;
+    }
 }
 
 // 4.6  Container Wrapper
@@ -199,9 +209,7 @@ footer#site__footer {
 
     @include media('>=tablet') {
         position: sticky;
-        margin-left: -50px;
         bottom: 0;
-        max-width: 110ch;
         z-index: 10;
     }
 
@@ -212,8 +220,8 @@ footer#site__footer {
         display: none;
         height: 5px;
         position: absolute;
-        left: 20px;
-        right: 20px;
+        left: 5px;
+        right: 10px;
         top: 0;
         z-index: -1;
 

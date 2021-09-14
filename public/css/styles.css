@@ -1541,13 +1541,27 @@ i.fas {
   .site__wrapper > #site__header {
     flex: 1 1 30%;
   }
-  .site__wrapper > .site__content {
+  .site__wrapper > #site__content {
     flex: 1 1 70%;
   }
 }
+@media (min-width: 1370px) {
+  .site__wrapper > #site__header {
+    flex: 1 1 40%;
+  }
+  .site__wrapper > #site__content {
+    flex: 1 1 60%;
+  }
+}
 
-.site__content {
+#content {
   position: relative;
+}
+@media (min-width: 760px) {
+  #content {
+    max-width: 100ch;
+    width: 90%;
+  }
 }
 
 .container {
@@ -1624,9 +1638,7 @@ footer#site__footer {
 @media (min-width: 760px) {
   footer#site__footer {
     position: sticky;
-    margin-left: -50px;
     bottom: 0;
-    max-width: 110ch;
     z-index: 10;
   }
 }
@@ -1637,8 +1649,8 @@ footer#site__footer::before {
   display: none;
   height: 5px;
   position: absolute;
-  left: 20px;
-  right: 20px;
+  left: 5px;
+  right: 10px;
   top: 0;
   z-index: -1;
 }
@@ -1845,9 +1857,9 @@ nav.site-nav ul li a:hover {
 @media (min-width: 760px) {
   .topper {
     position: sticky;
-    margin-left: -50px;
+    left: -10px;
+    right: -10px;
     top: 0;
-    max-width: 110ch;
     z-index: 10;
   }
 }
@@ -1858,8 +1870,8 @@ nav.site-nav ul li a:hover {
   display: none;
   height: 5px;
   position: absolute;
-  left: 20px;
-  right: 20px;
+  left: 5px;
+  right: 10px;
   bottom: 0;
   z-index: -1;
 }
@@ -1903,21 +1915,16 @@ nav.site-nav ul li a:hover {
 -------------------------------------------------------- */
 .articles {
   min-height: 100vh;
-  width: 95%;
+  padding: 0;
+  width: 96%;
   margin-left: auto;
   margin-right: auto;
 }
 @media (min-width: 760px) {
   .articles {
     margin-left: 0;
+    padding-left: calc( var(--flow-200) * 2 );
     padding-top: var(--flow-300);
-    width: 100%;
-    max-width: 80ch;
-  }
-}
-@media (min-width: 1370px) {
-  .articles {
-    max-width: 100ch;
   }
 }
 .articles .section-title {
@@ -1925,6 +1932,7 @@ nav.site-nav ul li a:hover {
 }
 .articles .articles__list {
   list-style: none;
+  margin: 0;
   padding: 0;
 }
 .articles .articles__list li {
@@ -1942,7 +1950,7 @@ nav.site-nav ul li a:hover {
   border-radius: var(--flow-300);
   box-shadow: 2px 2px 4px hsl(var(--clr-black)/0.5);
   margin: 0;
-  padding: 0;
+  padding: var(--flow-300);
   position: relative;
   width: 100%;
 }
@@ -1962,11 +1970,12 @@ nav.site-nav ul li a:hover {
   }
 }
 .articles .articles__list li .container__inner > article {
-  padding: var(--flow-300);
+  padding-bottom: calc( var(--flow-200) * 20 );
   width: 100%;
 }
 @media (min-width: 760px) {
   .articles .articles__list li .container__inner > article {
+    padding-bottom: 0;
     width: 65%;
   }
 }
@@ -1981,22 +1990,10 @@ nav.site-nav ul li a:hover {
   padding: 0;
 }
 .articles .articles__list li .container__inner > article h3 {
-  font-size: var(--fs-500);
-}
-.articles .articles__list li .container__inner > article h4, .articles .articles__list li .container__inner > article h5, .articles .articles__list li .container__inner > article h6 {
   font-size: var(--fs-400);
 }
-.articles .articles__list li .container__inner > article h4:nth-of-type(2n+1), .articles .articles__list li .container__inner > article h5:nth-of-type(2n+1), .articles .articles__list li .container__inner > article h6:nth-of-type(2n+1) {
-  color: hsl(var(--clr-error));
-}
-.articles .articles__list li .container__inner > article h4:nth-of-type(2n+2), .articles .articles__list li .container__inner > article h5:nth-of-type(2n+2), .articles .articles__list li .container__inner > article h6:nth-of-type(2n+2) {
-  color: hsl(var(--clr-tertiary));
-}
-.articles .articles__list li .container__inner > article h4:nth-of-type(2n+3), .articles .articles__list li .container__inner > article h5:nth-of-type(2n+3), .articles .articles__list li .container__inner > article h6:nth-of-type(2n+3) {
-  color: hsl(var(--clr-quaternary));
-}
-.articles .articles__list li .container__inner > article h4:nth-of-type(2n+4), .articles .articles__list li .container__inner > article h5:nth-of-type(2n+4), .articles .articles__list li .container__inner > article h6:nth-of-type(2n+4) {
-  color: hsl(var(--clr-secondary));
+.articles .articles__list li .container__inner > article h4, .articles .articles__list li .container__inner > article h5, .articles .articles__list li .container__inner > article h6 {
+  font-size: var(--fs-300);
 }
 .articles .articles__list li .container__inner > article hr {
   margin: 0 0 var(--flow-200) 0;
@@ -2014,17 +2011,24 @@ nav.site-nav ul li a:hover {
 .articles .articles__list li .container__inner > article ul > li:nth-child(even), .articles .articles__list li .container__inner > article ol > li:nth-child(even) {
   background-color: hsl(var(--clr-black)/0.1);
 }
+.articles .articles__list li .container__inner > article img {
+  margin-bottom: var(--flow-200);
+  width: 100%;
+}
+@media (min-width: 760px) {
+  .articles .articles__list li .container__inner > article img {
+    max-width: 300px;
+  }
+}
 .articles .articles__list li .container__inner > article img.polaroid {
   border: 10px solid hsl(var(--clr-white)/1);
   box-shadow: 5px 5px 10px hsl(var(--clr-black)/0.2);
   filter: sepia(1);
   height: auto;
-  width: 100%;
+  transition: all 500ms ease-in-out;
 }
-@media (min-width: 760px) {
-  .articles .articles__list li .container__inner > article img.polaroid {
-    max-width: 300px;
-  }
+.articles .articles__list li .container__inner > article img.polaroid:hover {
+  filter: none;
 }
 .articles .articles__list li .container__inner > article .alignleft,
 .articles .articles__list li .container__inner > article .alignright,
@@ -2039,18 +2043,27 @@ nav.site-nav ul li a:hover {
 .articles .articles__list li .container__inner > article .aligncenter > * {
   margin: 0 !important;
 }
+.articles .articles__list li .container__inner > article .alignleft:hover::after,
+.articles .articles__list li .container__inner > article .alignright:hover::after,
+.articles .articles__list li .container__inner > article .aligncenter:hover::after {
+  display: none;
+}
 @media (min-width: 760px) {
   .articles .articles__list li .container__inner > article .alignleft {
     float: left;
     margin: 0;
-    margin-bottom: var(--flow-200);
     margin-right: var(--flow-300);
+  }
+  .articles .articles__list li .container__inner > article .alignleft.overflow {
+    margin-left: calc( var(--flow-400) * -1 );
   }
   .articles .articles__list li .container__inner > article .alignright {
     float: right;
     margin: 0;
-    margin-bottom: var(--flow-200);
     margin-left: var(--flow-300);
+  }
+  .articles .articles__list li .container__inner > article .alignright.overflow {
+    margin-right: calc( var(--flow-400) * -1.25 );
   }
 }
 .articles .articles__list li .container__inner.single > article {
@@ -2113,6 +2126,7 @@ nav.site-nav ul li a:hover {
 }
 .tags > span {
   display: inline-block;
+  margin-bottom: var(--flow-50);
   padding-bottom: var(--flow-100);
   padding-right: var(--flow-100);
   text-shadow: 1px 1px 0 hsl(var(--clr-white)/0.5);

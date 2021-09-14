@@ -19,19 +19,16 @@
 // --------------------------------------------------------
 .articles {
     min-height: 100vh;
-    width: 95%;
+    padding: 0;
+
+    width: 96%;
 
     @include center-margins;
 
     @include media('>=tablet') {
         margin-left: 0;
+        padding-left: calc( var(--flow-200) * 2 );
         padding-top: var(--flow-300);
-        width: 100%;
-        max-width: 80ch;
-    }
-
-    @include media('>=desktop') {
-        max-width: 100ch;
     }
 
     .section-title {
@@ -40,6 +37,7 @@
 
     .articles__list {
         list-style: none;
+        margin: 0;
         padding: 0;
 
         li {
@@ -56,7 +54,7 @@
                 border-radius: var(--flow-300);
                 box-shadow: 2px 2px 4px hsl( var(--clr-black) / .5 );
                 margin: 0;
-                padding: 0;
+                padding: var(--flow-300);
                 position: relative;
                 width: 100%;
 
@@ -65,6 +63,7 @@
                 }
             
                 @include media('>=tablet') {
+
                     &::before {
                         background-color: hsl( var(--clr-white) );
                         content: '';
@@ -78,10 +77,11 @@
                 }
 
                 & > article {
-                    padding: var(--flow-300);
+                    padding-bottom: calc( var(--flow-200) * 20 );
                     width: 100%;
                     
                     @include media('>=tablet') {
+                        padding-bottom: 0;
                         width: 65%;
                     }
 
@@ -98,27 +98,11 @@
                     }
 
                     h3 {
-                        font-size: var(--fs-500);
+                        font-size: var(--fs-400);
                     }
 
                     h4, h5, h6 {
-                        font-size: var(--fs-400);
-                        
-                        &:nth-of-type(2n+1) {
-                            color: hsl( var(--clr-error) );
-                        }
-
-                        &:nth-of-type(2n+2) {
-                            color: hsl( var(--clr-tertiary) );
-                        }
-
-                        &:nth-of-type(2n+3) {
-                            color: hsl( var(--clr-quaternary) );
-                        }
-
-                        &:nth-of-type(2n+4) {
-                            color: hsl( var(--clr-secondary) );
-                        }
+                        font-size: var(--fs-300);
                     }
 
                     hr {
@@ -142,15 +126,24 @@
                         }
                     }
 
-                    img.polaroid {
-                        border: 10px solid hsl( var(--clr-white) / 1);
-                        box-shadow: 5px 5px 10px hsl( var(--clr-black) / .2);
-                        filter: sepia(1);
-                        height: auto;
+                    img {
+                        margin-bottom: var(--flow-200);
                         width: 100%;
 
                         @include media('>=tablet') {
                             max-width: 300px;
+                        }
+
+                        &.polaroid {
+                            border: 10px solid hsl( var(--clr-white) / 1);
+                            box-shadow: 5px 5px 10px hsl( var(--clr-black) / .2);
+                            filter: sepia(1);
+                            height: auto;
+                            transition: all 500ms ease-in-out;
+
+                            &:hover {
+                                filter: none;
+                            }
                         }
                     }
 
@@ -165,21 +158,32 @@
                         > * {
                             margin: 0 !important;
                         }
+
+                        &:hover::after {
+                            display: none;
+                        }
                     }
                     
                     @include media('>=tablet') {
                         .alignleft {
                             float: left;
                             margin: 0;
-                            margin-bottom: var(--flow-200);
                             margin-right: var(--flow-300);
+
+                            &.overflow {
+                                margin-left: calc( var(--flow-400) * -1 );
+    
+                            }
                         }
 
                         .alignright {
                             float: right;
                             margin: 0;
-                            margin-bottom: var(--flow-200);
                             margin-left: var(--flow-300);
+
+                            &.overflow {
+                                margin-right: calc( var(--flow-400) * -1.25 );
+                            }
                         }
                     }
                 }
@@ -267,6 +271,7 @@
 
     > span {
         display: inline-block;
+        margin-bottom: var(--flow-50);
         padding-bottom: var(--flow-100);
         padding-right: var(--flow-100);
         text-shadow: 1px 1px 0 hsl( var(--clr-white) / .5);

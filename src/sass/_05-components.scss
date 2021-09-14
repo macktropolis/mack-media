@@ -225,9 +225,9 @@ nav.site-nav {
 
     @include media('>=tablet') {
         position: sticky;
-        margin-left: -50px;
+        left: -10px;
+        right: -10px;
         top: 0;
-        max-width: 110ch;
         z-index: 10;
     }
 
@@ -238,8 +238,8 @@ nav.site-nav {
         display: none;
         height: 5px;
         position: absolute;
-        left: 20px;
-        right: 20px;
+        left: 5px;
+        right: 10px;
         bottom: 0;
         z-index: -1;
 

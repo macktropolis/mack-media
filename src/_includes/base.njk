@@ -3,11 +3,13 @@
 
     <section class="site__wrapper">
         {% include '_header.njk' %}
-        <main tabindex="-1" class="site__content" id="content">
-            {% include '_topper.njk' %}
-            <a name="home" id="anchor--home">Home</a>
-            {{ content | safe }}
-            {% include '_footer.njk' %}
+        <main tabindex="-1" id="site__content">
+            <div id="content">
+                {% include '_topper.njk' %}
+                <a name="home" id="anchor--home">Home</a>
+                {{ content | safe }}
+                {% include '_footer.njk' %}
+            </div>
         </main>
     </section>
     {% include '_scripts.njk' %}

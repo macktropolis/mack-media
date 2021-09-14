@@ -4,14 +4,31 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="/assets/favicons/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
     <title>Tagged “blog” | Mack Richardson</title>
     <link rel="stylesheet" href="/css/destyle.css">
     <link rel="stylesheet" href="/css/styles.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.css">
+    <link rel="apple-touch-icon" sizes="57x57" href="/assets/favicons/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="/assets/favicons/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/assets/favicons/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="/assets/favicons/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/assets/favicons/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/assets/favicons/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/assets/favicons/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/assets/favicons/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicons/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192"  href="/assets/favicons/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="/assets/favicons/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicons/favicon-16x16.png">
+    <link rel="manifest" href="/assets/favicons/manifest.json">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script defer src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
     <script src="https://kit.fontawesome.com/865e79b577.js" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js"></script>
+    <script async src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js"></script>
 
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-XXXXX-XX"></script>
@@ -145,9 +162,9 @@
     <img src="/assets/avatar.png" id="avatar">
 </div><!-- end: #logo -->
         <h1>Mack Richardson</h1>
-        <hr class="h-rule alt m-t-200 m-b-200">
-        <h2 class="p-all-0 m-all-0">Web Developer / FileMaker Developer / Dog Lover / Comic Book Reader / All-Around Nerd</h2>
-        <hr class="h-rule alt m-t-200 m-b-200">
+        <hr class="h-rule alt m-t-200 m-b-400">
+        <h2 class="p-l-200 p-r-200 m-all-0">Web Developer / FileMaker Developer / Dog Lover / Comic Book Reader / All-Around Nerd</h2>
+        <hr class="h-rule alt m-t-400 m-b-200">
         <section class="tags">
 
     <span>
@@ -157,12 +174,12 @@
 
     <span>
     
-        <i class="fas fa-tags"></i> <a href="/tags/eleventy/" class="post-tag eleventy">eleventy</a>
+        <i class="fas fa-tags"></i> <a href="/tags/sass/" class="post-tag sass">sass</a>
     </span>
 
     <span>
     
-        <i class="fas fa-tags"></i> <a href="/tags/sass/" class="post-tag sass">sass</a>
+        <i class="fas fa-tags"></i> <a href="/tags/eleventy/" class="post-tag eleventy">eleventy</a>
     </span>
 
     <span>
@@ -178,8 +195,9 @@
 </section>
     </div>
 </header>
-        <main tabindex="-1" class="site__content" id="content">
-            <div class="topper">
+        <main tabindex="-1" id="site__content">
+            <div id="content">
+                <div class="topper">
     <section class="inner grid flow p-t-200 p-b-200">
         <nav class="nav site-nav">
     <ul role="list" class="nav__list"><li class="nav__item">
@@ -190,8 +208,8 @@
 </nav>
     </section>
 </div>
-            <a name="home" id="anchor--home">Home</a>
-            
+                <a name="home" id="anchor--home">Home</a>
+                
 
 
 
@@ -202,10 +220,12 @@
 
 
   
+<!--
 <ol role="list">
 
 
 </ol>
+-->
 
   <section class="articles all">
     <ul role="list" class="articles__list flow">
@@ -341,11 +361,12 @@
   
   
 
-            <footer id="site__footer" class="site__footer">
+                <footer id="site__footer" class="site__footer">
     <section class="inner flow grid p-t-200 p-b-200">
         <p class="p-all-0 m-all-0">&copy;1969&dash;2021 Mack Richardson</p>
     </section>
 </footer>
+            </div>
         </main>
     </section>
     <script src="/js/index.js"></script>
