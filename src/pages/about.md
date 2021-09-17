@@ -1,6 +1,5 @@
 ---
-title: 'About Mack Richardson'
-description: 'Mack Richardson is a web developer'
+title: 'About Mack'
 image: '/assets/backgrounds/code.jpg'
 ---
 
