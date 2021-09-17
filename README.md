@@ -28,3 +28,4 @@ Use this as the "Publish command" if needed by hosting such as Netlify.
 
 You can [file it as an issue](https://github.com/macktropolis/j211ty/issues).
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/e22afd7c-b082-456d-8837-95583913eff6/deploy-status)](https://app.netlify.com/sites/jovial-lamport-a7682c/deploys)
