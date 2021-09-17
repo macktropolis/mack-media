@@ -3,5 +3,6 @@
     "tags": "tips",
     "layout": "article.njk",
     "image": "/assets/uploads/placeholder.jpg",
-    "type": "post"
+    "categories": "post",
+    "service": "youtube"
 }

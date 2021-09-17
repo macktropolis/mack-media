@@ -1,7 +1,7 @@
 {
-  "name": "jammin-to-eleventy",
+  "name": "mack-richardson",
   "version": "1.0.0",
-  "description": "A Jamstack site framework using Eleventy and SASS.",
+  "description": "Personal website for Mack Richardson",
   "main": ".eleventy.js",
   "scripts": {
     "watch:sass": "npx sass src/sass:public/css --watch",
@@ -25,7 +25,9 @@
     "@11ty/eleventy-plugin-rss": "^1.1.1",
     "concurrently": "^6.2.0",
     "gulp": "^4.0.2",
+    "lodash": "^4.17.21",
     "nunjucks": "^3.2.3",
-    "sass": "^1.35.1"
+    "sass": "^1.35.1",
+    "slugify": "^1.6.0"
   }
 }

@@ -119,6 +119,11 @@ a {
         transform-origin: left bottom;
         transition: transform 0.45s ease-in-out;
     }
+
+    > i.fas,
+    > i.fal {
+        color: inherit;
+    }
 }
 
 // 3.4  Images

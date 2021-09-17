@@ -4,7 +4,7 @@ description: 'Mack Richardson is a web developer'
 image: '/assets/backgrounds/code.jpg'
 ---
 
-### About Mack Richardson
+### About Mack
 
 ---
 

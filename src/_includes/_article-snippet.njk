@@ -1,15 +1,45 @@
+ {% set category = item.data.categories %}
  <li class="post-list__item leading-tight measure-long">
-    <div class="container__inner flow word-balloon">
+    <div class="container__inner flow word-balloon {{ category }}">
         <article class="snippet" role="article">
             <h3 class="snippet__title">
+
+            {% if category == 'post' %}
                 <a href="{{ item.url }}">
                     {{ item.data.title }}
                 </a>
+            {% else %}
+                {{ item.data.title }}
+            {% endif %}
+            
             </h3>
+            
             <p class="snippet__body">{{ item.data.description }}</p>
-            <a href="{{ item.url }}">Continue Reading <i class="fal fa-arrow-right"></i></a>
+
+            {% if category == 'post' %}
+                <a href="{{ item.url }}">Continue Reading <i class="fal fa-arrow-right"></i></a>
+            {% elseif category == 'picture' %}
+                <a data-fancybox href="{{ item.data.image }}">Zoom In <i class="fas fa-search-plus"></i></a>
+            {% elseif category == 'link' and item.data.url %}
+                <a target="_blank" href="{{ item.data.url }}">Visit Link <i class="fas fa-external-link"></i></a>
+            {% endif %}
+        
         </article>
-        <aside><img src="{{ item.data.image }}" alt="{{ item.data.imageAlt }}" class="snippet__image"></aside>
+        <aside>
+        {% if category == 'video' and item.data.service == 'vimeo' %}
+
+            <iframe src="https://player.vimeo.com/video/{{ item.data.videoID }}?h=67f9969329" width="640" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+        
+        {% elseif category == 'video' %}
+        
+            <iframe width="560" height="315" src="https://youtube.com/embed/{{ item.data.videoID }}?controls=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        
+        {% else %}
+        
+            <img src="{{ item.data.image }}" alt="{{ item.data.imageAlt }}" class="snippet__image">
+        
+        {% endif %}
+        </aside>
     </div>
     <p class="snippet__meta meta">
         <span class="meta__author"><i class="fas fa-typewriter"></i></i> {{ item.data.author }}</span>

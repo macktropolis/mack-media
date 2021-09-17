@@ -1,5 +1,50 @@
 const { DateTime } = require("luxon");
 const pluginRss = require("@11ty/eleventy-plugin-rss");
+const lodash = require("lodash");
+const slugify = require("slugify");
+
+/**
+ * Get all unique key values from a collection
+ *
+ * @param {Array} collectionArray - collection to loop through
+ * @param {String} key - key to get values from
+ */
+ function getAllKeyValues(collectionArray, key) {
+    // get all values from collection
+    let allValues = collectionArray.map((item) => {
+      let values = item.data[key] ? item.data[key] : [];
+      return values;
+    });
+  
+    // flatten values array
+    allValues = lodash.flattenDeep(allValues);
+    // to lowercase
+    allValues = allValues.map((item) => item.toLowerCase());
+    // remove duplicates
+    allValues = [...new Set(allValues)];
+    // order alphabetically
+    allValues = allValues.sort(function (a, b) {
+      return a.localeCompare(b, "en", { sensitivity: "base" });
+    });
+    // return
+    return allValues;
+  }
+  
+  /**
+   * Transform a string into a slug
+   * Uses slugify package
+   *
+   * @param {String} str - string to slugify
+   */
+  function strToSlug(str) {
+    const options = {
+      replacement: "-",
+      remove: /[&,+()$~%.'":*?<>{}]/g,
+      lower: true,
+    };
+  
+    return slugify(str, options);
+  }
 
 module.exports = function(eleventyConfig) {
 
@@ -40,6 +85,21 @@ module.exports = function(eleventyConfig) {
         return [...collection.getFilteredByGlob('./src/blog/*.md')].reverse();
     });
 
+    // create blog categories collection
+    eleventyConfig.addCollection("blogCategories", collection => {
+        let allCategories = getAllKeyValues(
+            collection.getFilteredByGlob("./src/blog/*.md"),
+            "categories"
+        );
+
+        let blogCategories = allCategories.map((category) => ({
+        title: category,
+        slug: strToSlug(category),
+        }));
+
+        return blogCategories;
+    });
+
     // Tags
     // --------------------------------------------------------
     
@@ -48,8 +108,6 @@ module.exports = function(eleventyConfig) {
         return (tags || []).filter(tag => [
             "all", 
             "nav", 
-            "post", 
-            "posts", 
             "pages", 
             "featured"
         ].indexOf(tag) === -1);
@@ -78,7 +136,9 @@ module.exports = function(eleventyConfig) {
     // --------------------------------------------------------
 
     // Use the limitTo filter to restrict the number of results returned from a collection
-     eleventyConfig.addNunjucksFilter('limitTo', require('./src/js/filters/nunjucks-filter-limit-to.js'))
+     eleventyConfig.addNunjucksFilter('limitTo', require('./src/js/filters/nunjucks-filter-limit-to.js'));
+
+     eleventyConfig.addNunjucksFilter('include', require('./src/js/filters/includes.js'));
 
     return {
         dir: {

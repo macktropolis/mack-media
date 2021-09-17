@@ -44,7 +44,7 @@
         img {
             display: block;
             height: auto;
-            width: 125px;
+            width: 200px;
         } // img
     }
 }
@@ -116,7 +116,7 @@
             margin-bottom: var(--flow-200);
             text-align: center;
 
-            @include media('>=tablet') {
+            @include media('>=desktop') {
                 margin-bottom: var(--flow-50);
                 text-align: left;
             }
@@ -186,10 +186,8 @@
 // --------------------------------------------------------
 nav.site-nav {
     align-items: center;
-    grid-column: 2 / span 2;
-    grid-template-columns: 1fr 1fr;
     display: flex;
-    justify-content: flex-end;
+    justify-content: center;
     
     ul {
         background-color: transparent;
@@ -198,6 +196,9 @@ nav.site-nav {
 
         li {
             font-size: var(--fs-100);
+            @include media('>=desktop') {
+                font-size: var(--fs-200);
+            }
             font-weight: var(--fw-900);
             margin: 0;
             padding: 0 var(--flow-200);
@@ -220,10 +221,18 @@ nav.site-nav {
 // #topper
 // --------------------------------------------------------
 .topper {
-    position: relative;
+    position: fixed;
     width: 100%;
 
-    @include media('>=tablet') {
+    background-color: hsl( var(--clr-white) );
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+
+    @include add-noise;
+
+    @include media('>=desktop') {
         position: sticky;
         left: -10px;
         right: -10px;
@@ -235,7 +244,7 @@ nav.site-nav {
         background-color: transparent;
         box-shadow: 0 0 5px hsl( var(--clr-black) / .5);
         content: '';
-        display: none;
+        display: block;
         height: 5px;
         position: absolute;
         left: 5px;
@@ -243,9 +252,8 @@ nav.site-nav {
         bottom: 0;
         z-index: -1;
 
-        @include media('>=tablet') {
-            display: block;
-        }
+        @include media('>=desktop') {
+            display: block;        }
     }
 
     section {

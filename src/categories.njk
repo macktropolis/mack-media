@@ -1,0 +1,14 @@
+---
+layout: 'articles-feed.njk'
+pagination:
+  data: collections.blogCategories
+  size: 1
+  alias: category
+permalink: /category/{{ category.slug }}/index.html
+---
+
+<ol role="list">
+  {% for category in collections.blogCategories | reverse %}
+    <li><a href="/category/{{ category.slug }}">{{ category.title }}</a></li>
+  {% endfor %}
+</ol>

@@ -60,4 +60,9 @@
     <loc>/about/</loc>
     <lastmod>13 Sep 2021</lastmod>
   </url>
+  
+  <url>
+    <loc>/category/link/</loc>
+    <lastmod>16 Sep 2021</lastmod>
+  </url>
 </urlset>

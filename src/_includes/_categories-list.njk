@@ -1,0 +1,7 @@
+<section class="tags">
+{% for category in collections.blogCategories %}
+    <span>
+        <i class="fas fa-tags"></i> <a href="/category/{{ category.slug }}" class="post-tag {{ category.slug }}">{{ category.title }}</a>
+    </span>
+{% endfor %}
+</section>

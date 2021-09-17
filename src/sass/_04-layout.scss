@@ -35,14 +35,14 @@
     margin-bottom: var(--flow-200);
     margin-top: var(--flow-200);
 
-    @include media('>=tablet') {
+    @include media('>=desktop') {
         float: left;
         margin-right: var(--flow-300);
         width: 40%;
     }
 
     &.right {
-        @include media('>=tablet') {
+        @include media('>=desktop') {
             float: right;
             margin-left: var(--flow-400);
             margin-right: 0;
@@ -90,23 +90,22 @@
 // #site-wrapper
 // --------------------------------------------------------
 .site__wrapper {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: flex-end;
+    padding-left: var(--flow-100);
+    padding-right: var(--flow-100);
     position: relative;
 
-    @include media('>=tablet') {
+    @include media('>=desktop') {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-end;
         flex-direction: row;
+        padding-left: 0;
+        padding-right: 0;
 
         @include center-margins;
 
         & > #site__header { flex: 1 1 30%; }
         & > #site__content { flex: 1 1 70%; }
-    }
-
-    @include media('>=desktop') {
-        & > #site__header { flex: 1 1 40%; }
-        & > #site__content { flex: 1 1 60%; }
     }
 }
 
@@ -116,8 +115,8 @@
 #content {
     position: relative;
 
-    @include media('>=tablet') {
-        max-width: 100ch;
+    @include media('>=desktop') {
+        max-width: 125ch;
         width: 90%;
     }
 }
@@ -142,7 +141,6 @@
     &__inner {
         padding: var( --flow-700 );
         position: relative;
-        max-width: var(--width-900);
         width: 100%;
         z-index: 1;
 
@@ -157,15 +155,18 @@ header#site__header {
     align-items: center;
     display: flex;
     flex-direction: column;
+    margin-bottom: var(--flow-300);
+    padding-top: var(--flow-500);
     position: relative;
     text-align: center;
     transition: all ease-in-out 255ms;
     width: 100%;
-    z-index: 999;
 
     @include media('>=desktop'){
         align-items: flex-end;
-        padding-right: var(--flow-300);
+        margin-bottom: 0;
+        padding-right: var(--flow-100);
+        padding-top: 0;
     }
 
     .wrapper {
@@ -174,7 +175,7 @@ header#site__header {
         position: relative;
         width: 100%;
 
-        @include media('>=tablet') {
+        @include media('>=desktop') {
             position: fixed;
             width: 300px;
         }
@@ -194,8 +195,8 @@ header#site__header {
         }  
 
         img {
-            margin-bottom: var(--flow-300);
-            margin-top: 125px;
+            margin-bottom: var(--flow-100);
+            margin-top: 100px;
         }
     }
 }
@@ -204,30 +205,28 @@ header#site__header {
 // #site-footer
 // --------------------------------------------------------
 footer#site__footer {
-    position: relative;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
     width: 100%;
+    z-index: 10;
 
-    @include media('>=tablet') {
+    @include media('>=desktop') {
         position: sticky;
-        bottom: 0;
-        z-index: 10;
     }
 
     &::before {
         background-color: transparent;
         box-shadow: 0 0 5px hsl( var(--clr-black) / .5);
         content: '';
-        display: none;
+        display: block;
         height: 5px;
         position: absolute;
         left: 5px;
         right: 10px;
         top: 0;
         z-index: -1;
-
-        @include media('>=tablet') {
-            display: block;
-        }
     }
 
     section {

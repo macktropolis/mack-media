@@ -9,11 +9,12 @@ pageClass: 'blog'
 {# If this is a tag, grab those items instead as one large collection #}
 {% if tag %}
   {% set postListItems = collections[tag] %}
+{% elseif category %}
+  {% set postListItems = collections.blogCategories %}
 {% endif %}
 
 {% block content %}
   {{ content | safe }}
-
   <section class="articles all">
     <ul role="list" class="articles__list flow">
         {% for item in postListItems %}
