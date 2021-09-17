@@ -25,6 +25,6 @@ collections:
       - { label: "Category", name: "categories", widget: "list", min: 1, max: 1, default: ["post"] }
       - { label: "Featured Image", name: "image", widget: "image" }
       - { label: "Image Caption", name: "imageAlt", widget: "string" }
-      - { label: "Video Service", name: "service", widget: "list", min: 1, max: 1, default: ["youtube"] }
+      - { label: "Video Service", name: "service", widget: "list", max: 1, default: ["youtube"] }
       - { label: "Video ID", name: "videoID", widget: "string" }
       - { label: "Body", name: "body", widget: "markdown" }
