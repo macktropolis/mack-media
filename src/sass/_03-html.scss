@@ -419,6 +419,7 @@ pre {
     color: hsl( var(--clr-white));
     display: inline-block;
     font-weight: 900;
+    isolation: isolate;
     margin: 1rem 0 .5rem 0;
     padding: .5rem 2rem;
     position: relative;

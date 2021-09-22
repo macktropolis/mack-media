@@ -221,13 +221,11 @@ nav.site-nav {
 // #topper
 // --------------------------------------------------------
 .topper {
-    position: fixed;
-    width: 100%;
-
     background-color: hsl( var(--clr-white) );
+    position: fixed;
     top: 0;
-    left: 0;
-    right: 0;
+    left: 10px;
+    width: 98%;
     z-index: 100;
 
     @include add-noise;
@@ -237,6 +235,7 @@ nav.site-nav {
         left: -10px;
         right: -10px;
         top: 0;
+        width: 100%;
         z-index: 10;
     }
 
