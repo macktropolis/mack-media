@@ -1682,7 +1682,7 @@ header#site__header .wrapper h1 {
   line-height: 90%;
   text-shadow: 1px 1px 0 hsl(var(--clr-white)/1);
 }
-header#site__header .wrapper h2 {
+header#site__header .wrapper h2, header#site__header .wrapper p {
   color: hsl(var(--clr-black)/0.5);
   font-family: var(--ff-sans);
   font-size: var(--fs-50);

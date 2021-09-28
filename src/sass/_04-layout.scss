@@ -186,13 +186,13 @@ header#site__header {
             text-shadow: 1px 1px 0 hsl( var(--clr-white) / 1);
         }
     
-        h2 {
+        h2, p {
             color: hsl( var(--clr-black) / .5);
             font-family: var(--ff-sans);
             font-size: var(--fs-50);
             font-weight: var(--fw-400);
             text-shadow: 1px 1px 0 hsl( var(--clr-white) / 1);
-        }  
+        }
 
         img {
             margin-bottom: var(--flow-100);
