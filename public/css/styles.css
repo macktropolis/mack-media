@@ -1444,8 +1444,68 @@ pre.language-ruby::after {
   left: 0;
 }
 
+[class^=link] {
+  align-items: center;
+  background-color: hsl(var(--clr-secondary));
+  border: 0.1875rem solid hsl(var(--clr-black));
+  border-radius: 2rem;
+  box-shadow: inset 0.1875rem 0.1875rem hsl(var(--clr-white)), inset -0.1875rem -0.1875rem hsl(var(--clr-black));
+  color: hsl(var(--clr-white));
+  display: inline-flex;
+  font-weight: bold;
+  justify-content: center;
+  line-height: 1;
+  margin-bottom: var(--flow-100);
+  padding: 0.875rem 1rem;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  text-shadow: 2px 0 hsl(var(--clr-black)), -2px 0 hsl(var(--clr-black)), 0 2px hsl(var(--clr-black)), 0 -2px hsl(var(--clr-black));
+  text-transform: uppercase;
+  transition: all 255ms ease-in-out;
+}
+[class^=link]:hover, [class^=link]:focus {
+  transform: translate(0, 0.025em);
+  box-shadow: inset 0.125em 0.125em hsl(var(--clr-black));
+  border-color: hsl(var(--clr-white));
+  box-shadow: 0 0 0 0.1875rem hsl(var(--clr-black));
+  outline: 2px solid transparent;
+  outline-offset: 4px;
+}
+[class^=link]:hover::after, [class^=link]:focus::after {
+  display: none;
+}
+[class^=link] span {
+  display: block;
+  height: 1em;
+}
+[class^=link] span svg,
+[class^=link] span i.fas,
+[class^=link] span i.fab {
+  color: hsl(var(--clr-white));
+  position: relative;
+  display: inline-block;
+  height: 1rem;
+  margin-right: 0.375rem;
+  fill: hsl(var(--clr-white));
+  stroke: hsl(var(--clr-black));
+  stroke-width: 3px;
+}
+
 i.fas {
   color: hsl(var(--clr-black)/0.3);
+}
+
+.link-qube {
+  background-color: hsl(var(--clr-error));
+}
+
+.link-github {
+  background-color: hsl(var(--clr-black)/0.5);
+}
+
+.link-linkedin {
+  background-color: #005fb8;
 }
 
 .no-margin {
@@ -1959,7 +2019,7 @@ nav.site-nav ul li a:hover {
   background-image: linear-gradient(transparent, hsl(var(--clr-black)/0.075));
   border: var(--flow-50) solid hsl(var(--clr-secondary));
   border-radius: var(--flow-300);
-  box-shadow: 2px 2px 4px hsl(var(--clr-black)/0.5);
+  box-shadow: var(--flow-100) var(--flow-100) 0 hsl(var(--clr-black)/0.15);
   margin: 0;
   padding: var(--flow-300);
   position: relative;
@@ -2173,7 +2233,7 @@ nav.site-nav ul li a:hover {
 .meta {
   color: hsl(var(--clr-black)/0.5);
   padding-left: var(--flow-200);
-  padding-top: var(--flow-100);
+  padding-top: var(--flow-200);
   text-shadow: 1px 1px 0 hsl(var(--clr-white));
 }
 .meta span {
@@ -2199,11 +2259,10 @@ nav.site-nav ul li a:hover {
 }
 
 .tags {
-  padding: 0 var(--flow-300);
+  padding: 0 var(--flow-100);
 }
 .tags > span {
   display: inline-block;
-  margin-bottom: var(--flow-50);
   padding-bottom: var(--flow-100);
   padding-right: var(--flow-100);
   text-shadow: 1px 1px 0 hsl(var(--clr-white)/0.5);

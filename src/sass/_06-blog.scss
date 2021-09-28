@@ -53,7 +53,7 @@
                 background-image: linear-gradient(transparent, hsl( var(--clr-black)/.075 ));
                 border: var(--flow-50) solid hsl( var(--clr-secondary) );
                 border-radius: var(--flow-300);
-                box-shadow: 2px 2px 4px hsl( var(--clr-black) / .5 );
+                box-shadow: var(--flow-100) var(--flow-100) 0 hsl( var(--clr-black) / .15 );
                 margin: 0;
                 padding: var(--flow-300);
                 position: relative;
@@ -326,7 +326,7 @@
 .meta {
     color: hsl( var(--clr-black) / .5);
     padding-left: var(--flow-200);
-    padding-top: var(--flow-100);
+    padding-top: var(--flow-200);
     text-shadow: 1px 1px 0 hsl( var(--clr-white) );
     
     span {
@@ -364,11 +364,10 @@
 // #tags
 // --------------------------------------------------------
 .tags {
-    padding: 0 var(--flow-300);
+    padding: 0 var(--flow-100);
 
     > span {
         display: inline-block;
-        margin-bottom: var(--flow-50);
         padding-bottom: var(--flow-100);
         padding-right: var(--flow-100);
         text-shadow: 1px 1px 0 hsl( var(--clr-white) / .5);
