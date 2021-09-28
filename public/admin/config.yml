@@ -19,7 +19,7 @@ collections:
     fields: 
       - { label: "Title", name: "title", widget: "string" }
       - { label: "Article Excerpt", name: "description", widget: "string" }
-      - { label: "Author", name: "author", widget: "string", default: ["Mack Richardson"] }
+      - { label: "Author", name: "author", widget: "list", default: ["Mack Richardson"] }
       - { label: "Date", name: "date", widget: "datetime" }
       - { label: "Tags", name: "tags", widget: "list", default: ["post"] }
       - { label: "Category", name: "categories", widget: "list", max: 1, default: ["post"] }
