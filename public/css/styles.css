@@ -2116,6 +2116,9 @@ nav.site-nav ul li a:hover {
 .articles .articles__list li .container__inner > article h4, .articles .articles__list li .container__inner > article h5, .articles .articles__list li .container__inner > article h6 {
   font-size: var(--fs-300);
 }
+.articles .articles__list li .container__inner > article p {
+  line-height: 150%;
+}
 .articles .articles__list li .container__inner > article hr {
   margin: 0 0 var(--flow-200) 0;
 }
@@ -2227,6 +2230,15 @@ nav.site-nav ul li a:hover {
 }
 .articles .articles__list li .container__inner > aside > iframe {
   height: 100%;
+  width: 100%;
+}
+.articles .articles__list li .container__inner > aside > a {
+  height: 100%;
+  width: 100%;
+}
+.articles .articles__list li .container__inner > aside > a img {
+  height: 100%;
+  object-fit: cover;
   width: 100%;
 }
 

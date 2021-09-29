@@ -183,6 +183,10 @@
                         font-size: var(--fs-300);
                     }
 
+                    p {
+                        line-height: 150%;
+                    }
+
                     hr {
                         margin: 0 0 var(--flow-200) 0;
                     }
@@ -299,7 +303,6 @@
                         width: 40%;
                     }
                     
-                    & > a > img,
                     & > img {
                         height: 100%;
                         object-fit: cover;
@@ -309,6 +312,17 @@
                     & > iframe {
                         height: 100%;
                         width: 100%;
+                    }
+
+                    & > a {
+                        height: 100%;
+                        width: 100%;
+
+                        img {
+                            height: 100%;
+                            object-fit: cover;
+                            width: 100%;
+                        }
                     }
                 }
             }

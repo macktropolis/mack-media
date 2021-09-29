@@ -7,27 +7,42 @@
   </url>
   
   <url>
+    <loc>/blog/2021-09-29-batman-1940-15/</loc>
+    <lastmod>28 Sep 2021</lastmod>
+  </url>
+  
+  <url>
+    <loc>/blog/</loc>
+    <lastmod>29 Sep 2021</lastmod>
+  </url>
+  
+  <url>
+    <loc>/category/picture/</loc>
+    <lastmod>29 Sep 2021</lastmod>
+  </url>
+  
+  <url>
     <loc>/</loc>
-    <lastmod>08 Sep 2021</lastmod>
-  </url>
-  
-  <url>
-    <loc>/helloworld/</loc>
-    <lastmod>08 Sep 2021</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/</loc>
-    <lastmod>08 Sep 2021</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/blogCategories/</loc>
-    <lastmod>08 Sep 2021</lastmod>
+    <lastmod>29 Sep 2021</lastmod>
   </url>
   
   <url>
     <loc>/about/</loc>
-    <lastmod>13 Sep 2021</lastmod>
+    <lastmod>29 Sep 2021</lastmod>
+  </url>
+  
+  <url>
+    <loc>/helloworld/</loc>
+    <lastmod>29 Sep 2021</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/</loc>
+    <lastmod>29 Sep 2021</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/general/</loc>
+    <lastmod>29 Sep 2021</lastmod>
   </url>
 </urlset>
