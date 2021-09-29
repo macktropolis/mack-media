@@ -14,7 +14,11 @@
             
             </h3>
             
-            <p class="snippet__body">{{ item.data.description }}</p>
+            {% if category == 'picture' %}
+                <p class="snippet__body">{{ item.data.description }}</p>
+            {% else %}
+                <p class="snippet__body">{{ item.data.description }}</p>
+            {% endif %}
 
             {% if category == 'post' %}
                 <a href="{{ item.url }}">Continue Reading <i class="fal fa-arrow-right"></i></a>
@@ -33,7 +37,11 @@
         {% elseif category == 'video' %}
         
             <iframe width="560" height="315" src="https://youtube.com/embed/{{ item.data.videoID }}?controls=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+        {% elseif category == 'picture' %}
         
+            <a data-fancybox href="{{ item.data.image }}"><img src="{{ item.data.image }}" alt="{{ item.data.imageAlt }}" class="snippet__image"></a>
+
         {% else %}
         
             <img src="{{ item.data.image }}" alt="{{ item.data.imageAlt }}" class="snippet__image">
