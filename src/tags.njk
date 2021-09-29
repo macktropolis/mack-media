@@ -9,9 +9,11 @@ pagination:
     - featured
     - pages
 eleventyComputed:
-  title: Tagged “{{ tag }}”
+  title: Tagged with “{{ tag }}”
 permalink: /tags/{{ tag }}/
 ---
+
+<h2 class="headline-tags text-center p-t-400 m-b-200 tt-caps">{{ title }}</h2>
 
 <!--
 <ol role="list">

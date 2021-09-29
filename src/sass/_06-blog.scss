@@ -208,6 +208,10 @@
                         }
                     }
 
+                    [class^="link"] {
+                        margin-top: var(--flow-200);
+                    }
+
                     img {
                         margin-bottom: var(--flow-200);
                         width: 100%;
@@ -383,11 +387,15 @@
 
     > span {
         display: inline-block;
-        padding-bottom: var(--flow-100);
         padding-right: var(--flow-100);
         text-shadow: 1px 1px 0 hsl( var(--clr-white) / .5);
         white-space: nowrap;
     }
+}
+
+h2.headline-tags {
+    color: hsl( var(--clr-black) / .35 );
+    font-family: var(--ff-sans);
 }
 
 // 6.4 Pagination

@@ -14,18 +14,18 @@
             
             </h3>
             
-            {% if category == 'picture' %}
-                <p class="snippet__body">{{ item.data.description }}</p>
+            {% if category == 'picture' or not item.data.description %}
+                <p class="snippet__body">{{ item.data.content | safe | truncate(160, true, " ...") }}</p>
             {% else %}
                 <p class="snippet__body">{{ item.data.description }}</p>
             {% endif %}
 
             {% if category == 'post' %}
-                <a href="{{ item.url }}">Continue Reading <i class="fal fa-arrow-right"></i></a>
+                <a href="{{ item.url }}" class="link-read"><span>Continue Reading <i class="fal fa-arrow-right"></i></span></a>
             {% elseif category == 'picture' %}
-                <a data-fancybox href="{{ item.data.image }}">Zoom In <i class="fas fa-search-plus"></i></a>
+                <a data-fancybox href="{{ item.data.image }}" class="link-zoom"><span><i class="fas fa-search-plus"></i> Zoom In</span></a>
             {% elseif category == 'link' and item.data.url %}
-                <a target="_blank" href="{{ item.data.url }}">Visit Link <i class="fas fa-external-link"></i></a>
+                <a target="_blank" href="{{ item.data.url }}" class="link-link"><span><i class="fas fa-external-link"></i> Visit Link</span></a>
             {% endif %}
         
         </article>

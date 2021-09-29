@@ -1446,17 +1446,19 @@ pre.language-ruby::after {
 
 [class^=link] {
   align-items: center;
+  all: revert;
   background-color: hsl(var(--clr-secondary));
   border: 0.1875rem solid hsl(var(--clr-black));
   border-radius: 2rem;
   box-shadow: inset 0.1875rem 0.1875rem hsl(var(--clr-white)), inset -0.1875rem -0.1875rem hsl(var(--clr-black));
-  color: hsl(var(--clr-white));
+  color: hsl(var(--clr-white)) !important;
   display: inline-flex;
-  font-weight: bold;
+  font-family: var(--ff-sans);
+  font-weight: var(--fw-700);
   justify-content: center;
   line-height: 1;
   margin-bottom: var(--flow-100);
-  padding: 0.875rem 1rem;
+  padding: 0.875rem 1.25rem;
   position: relative;
   text-align: center;
   text-decoration: none;
@@ -1482,7 +1484,7 @@ pre.language-ruby::after {
 [class^=link] span svg,
 [class^=link] span i.fas,
 [class^=link] span i.fab {
-  color: hsl(var(--clr-white));
+  color: hsl(var(--clr-white)) !important;
   position: relative;
   display: inline-block;
   height: 1rem;
@@ -1504,8 +1506,20 @@ i.fas {
   background-color: hsl(var(--clr-black)/0.5);
 }
 
+.link-link {
+  background-color: hsl(var(--clr-quinary));
+}
+
 .link-linkedin {
   background-color: #005fb8;
+}
+
+.link-video {
+  background-color: hsl(var(--clr-tertiary));
+}
+
+.link-zoom {
+  background-color: hsl(var(--clr-quaternary));
 }
 
 .no-margin {
@@ -2135,6 +2149,9 @@ nav.site-nav ul li a:hover {
 .articles .articles__list li .container__inner > article ul > li:nth-child(even), .articles .articles__list li .container__inner > article ol > li:nth-child(even) {
   background-color: hsl(var(--clr-black)/0.1);
 }
+.articles .articles__list li .container__inner > article [class^=link] {
+  margin-top: var(--flow-200);
+}
 .articles .articles__list li .container__inner > article img {
   margin-bottom: var(--flow-200);
   width: 100%;
@@ -2275,10 +2292,14 @@ nav.site-nav ul li a:hover {
 }
 .tags > span {
   display: inline-block;
-  padding-bottom: var(--flow-100);
   padding-right: var(--flow-100);
   text-shadow: 1px 1px 0 hsl(var(--clr-white)/0.5);
   white-space: nowrap;
+}
+
+h2.headline-tags {
+  color: hsl(var(--clr-black)/0.35);
+  font-family: var(--ff-sans);
 }
 
 .pagination {
