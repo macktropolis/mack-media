@@ -13,9 +13,11 @@ eleventyComputed:
 permalink: /tags/{{ tag }}/
 ---
 
+<!--
 <ol role="list">
   {% set taglist = collections.blog[ tag ] %}
   {% for post in taglist | reverse %}
     <li><a href="{{ post.url | url }}">{{ post.data.title }}</a></li>
   {% endfor %}
 </ol>
+-->
