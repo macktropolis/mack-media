@@ -218,7 +218,7 @@ footer#site__footer {
 
     &::before {
         background-color: transparent;
-        box-shadow: 0 0 5px hsl( var(--clr-black) / .5);
+        box-shadow: 0 0 10px hsl( var(--clr-black) / .5);
         content: '';
         display: block;
         height: 5px;

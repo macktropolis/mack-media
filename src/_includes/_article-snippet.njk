@@ -14,8 +14,10 @@
             
             </h3>
             
-            {% if category == 'picture' or not item.data.description %}
-                <p class="snippet__body">{{ item.data.content | safe | truncate(160, true, " ...") }}</p>
+            {% if category == 'picture' %}
+                <p class="snippet__body">{{ item.data.content | safe }}</p>
+            {% elseif not item.data.description %}
+                <p class="snippet__body">{{ item.data.content | safe | truncate(160, true, " ...") }}</p>            
             {% else %}
                 <p class="snippet__body">{{ item.data.description }}</p>
             {% endif %}
@@ -23,7 +25,7 @@
             {% if category == 'post' %}
                 <a href="{{ item.url }}" class="link-read"><span>Continue Reading <i class="fal fa-arrow-right"></i></span></a>
             {% elseif category == 'picture' %}
-                <a data-fancybox href="{{ item.data.image }}" class="link-zoom"><span><i class="fas fa-search-plus"></i> Zoom In</span></a>
+                <a data-fancybox href="{{ item.data.image }}" class="link-zoom"{% if item.data.content %} data-caption="{{ item.data.content }}"{% endif %}><span><i class="fas fa-search-plus"></i> Zoom In</span></a>
             {% elseif category == 'link' and item.data.url %}
                 <a target="_blank" href="{{ item.data.url }}" class="link-link"><span><i class="fas fa-external-link"></i> Visit Link</span></a>
             {% endif %}
@@ -40,7 +42,7 @@
 
         {% elseif category == 'picture' %}
         
-            <a data-fancybox href="{{ item.data.image }}"><img src="{{ item.data.image }}" alt="{{ item.data.imageAlt }}" class="snippet__image"></a>
+            <a data-fancybox href="{{ item.data.image }}"{% if item.data.content %} data-caption="{{ item.data.content }}"{% endif %}><span>Click Image to View</span><img src="{{ item.data.image }}" alt="{{ item.data.imageAlt }}" class="snippet__image"></a>
 
         {% else %}
         
@@ -50,7 +52,12 @@
         </aside>
     </div>
     <p class="snippet__meta meta">
-        <span class="meta__author"><i class="fas fa-typewriter"></i></i> {{ item.data.author }}</span>
+    {% if category == 'picture' or category == 'video' %}
+        <span class="meta__title"><i class="fas fa-book"></i> {{ item.data.title }}</span>
+        <span class="meta__author"><i class="fas fa-link"></i> <a href="{{ item.data.url }}" target="_blank">{{ item.data.author }}</a></span>
+    {% else %}
+        <span class="meta__author"><i class="fas fa-typewriter"></i> {{ item.data.author }}</span>
+    {% endif %}
         <span class="meta__date"><i class="fas fa-clock"></i> {{ item.date | htmlDateString }}</span>
         <span class="meta__tags">
             {% for tag in item.data.tags | filterTagList %}

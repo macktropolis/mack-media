@@ -7,6 +7,11 @@
   </url>
   
   <url>
+    <loc>/blog/2021-09-15-the-days-are-just-packed/</loc>
+    <lastmod>15 Sep 2021</lastmod>
+  </url>
+  
+  <url>
     <loc>/blog/2021-09-29-batman-1940-15/</loc>
     <lastmod>28 Sep 2021</lastmod>
   </url>
@@ -42,7 +47,12 @@
   </url>
   
   <url>
-    <loc>/tags/general/</loc>
+    <loc>/tags/picture/</loc>
+    <lastmod>29 Sep 2021</lastmod>
+  </url>
+  
+  <url>
+    <loc>/blog/2021-09-30-css-outlines/</loc>
     <lastmod>29 Sep 2021</lastmod>
   </url>
 </urlset>

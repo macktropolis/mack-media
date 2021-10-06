@@ -224,8 +224,8 @@ nav.site-nav {
     background-color: hsl( var(--clr-white) );
     position: fixed;
     top: 0;
-    left: 10px;
-    width: 98%;
+    left: 0;
+    width: 100%;
     z-index: 100;
 
     @include add-noise;
@@ -241,12 +241,12 @@ nav.site-nav {
 
     &::before {
         background-color: transparent;
-        box-shadow: 0 0 5px hsl( var(--clr-black) / .5);
+        box-shadow: 0 0 10px hsl( var(--clr-black) / .5);
         content: '';
         display: block;
         height: 5px;
         position: absolute;
-        left: 5px;
+        left: 10px;
         right: 10px;
         bottom: 0;
         z-index: -1;

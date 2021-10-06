@@ -20,15 +20,12 @@
 .articles {
     min-height: 100vh;
     padding: 0;
-    width: 95%;
+    width: 94%;
 
     @include center-margins;
 
     @include media('>=desktop') {
-        margin-left: 0;
-        padding-left: calc( var(--flow-200) * 3 );
         padding-top: var(--flow-300);
-        width: 97%;
     }
 
     .section-title {
@@ -65,6 +62,7 @@
                         margin-bottom: var(--flow-400);
                     }
 
+                    /*
                     &::before {
                         background-color: hsl( var(--clr-white) );
                         border-left: var(--flow-50) solid hsl( var(--clr-secondary) );
@@ -77,6 +75,7 @@
                         top: 50px;
                         transform: rotate(45deg);
                     } // .word-balloon::after
+                    */
                 }
 
                 // Special Styling based on post type
@@ -84,8 +83,11 @@
                 //
                 &.picture {
                     border-color: hsl( var(--clr-quaternary) );
+                    min-height: calc( var(--flow-200) * 30);
+                    overflow: hidden;
 
                     & > article {
+                        display: none;
 
                         h1, h2, h3, h4, h5, h6, a {
                             color: hsl( var(--clr-quaternary) );
@@ -102,7 +104,39 @@
 
                     & > aside {
                         background-color: hsl( var(--clr-quaternary ) );
-                        border-color: hsl( var(--clr-quaternary) );
+                        border: none;
+                        border-radius: 0;
+                        isolation: isolate;
+                        height: 100%;
+                        inset: 0;
+                        width: 100%;
+
+                        a {
+                            
+                            span {
+                                background-color: hsl( var(--clr-quaternary) );
+                                border-top-left-radius: var(--flow-300);
+                                color: hsl( var(--clr-white) );
+                                display: inline-block;
+                                padding: var(--flow-200) var(--flow-300);
+                                position: absolute;
+                                right: 0;
+                                bottom: 0;
+                                text-align: center;
+                                width: auto;
+                                z-index: 10;
+                            }
+                        }
+
+                        img {
+                            filter: sepia(1);
+                            transition: all 500ms ease-in-out;
+
+                            &:hover {
+                                filter: sepia(0);
+                            }
+
+                        }
                     }
                 }
 
@@ -132,8 +166,11 @@
 
                 &.video {
                     border-color: hsl( var(--clr-tertiary) );
+                    height: calc( var(--flow-200) * 30);
+                    overflow: hidden;
 
                     & > article {
+                        display: none;
                         
                         h1, h2, h3, h4, h5, h6, a {
                             color: hsl( var(--clr-tertiary) );
@@ -150,7 +187,11 @@
 
                     & > aside {
                         background-color: hsl( var(--clr-tertiary ) );
-                        border-color: hsl( var(--clr-tertiary) );
+                        border: none;
+                        border-radius: 0;
+                        height: 100%;
+                        inset: 0;
+                        width: 100%;
                     }
                 }
 
@@ -184,7 +225,7 @@
                     }
 
                     p {
-                        line-height: 150%;
+                        line-height: 175%;
                     }
 
                     hr {
@@ -343,6 +384,17 @@
 // #article #meta
 // --------------------------------------------------------
 .meta {
+    display: grid;
+    grid-template-columns: repeat(
+      auto-fill,
+      minmax(var(--auto-grid-min-size, 16rem), 1fr)
+    );
+    grid-gap: var(--flow-50);
+
+    @include media('>=desktop') {
+        display: revert;
+    }
+
     color: hsl( var(--clr-black) / .5);
     padding-left: var(--flow-200);
     padding-top: var(--flow-200);
@@ -383,6 +435,7 @@
 // #tags
 // --------------------------------------------------------
 .tags {
+    margin: var(--flow-300) 0;
     padding: 0 var(--flow-100);
 
     > span {

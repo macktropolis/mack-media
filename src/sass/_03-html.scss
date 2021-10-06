@@ -509,6 +509,11 @@ pre {
 // 3.10 Classes
 // #classes
 // --------------------------------------------------------
+.fancybox__caption {
+    max-width: 60ch !important;
+    text-align: center !important;
+}
+
 i.fas {
     color: hsl( var(--clr-black) / .3);
 }
