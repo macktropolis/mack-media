@@ -42,7 +42,7 @@
 
         {% elseif category == 'picture' %}
         
-            <a data-fancybox href="{{ item.data.image }}"{% if item.data.content %} data-caption="{{ item.data.content }}"{% endif %}><span>Click Image to View</span><img src="{{ item.data.image }}" alt="{{ item.data.imageAlt }}" class="snippet__image"></a>
+            <a data-fancybox href="{{ item.data.image }}"{% if item.data.content %} data-caption="{{ item.data.content }}"{% endif %}><img src="{{ item.data.image }}" alt="{{ item.data.imageAlt }}" class="snippet__image"></a>
 
         {% else %}
         

@@ -5,9 +5,25 @@ pageClass: 'home'
 
 {% set postListItems = pagination.items %}
 
-{% block content %}
-    {{ content | safe }}
-{% endblock %}
+<section class="articles all">
+    <ul role="list" class="articles__list flow">
 
-{# include '_articles-featured.njk' #}
-{% include '_articles-all.njk' %}
+        <li class="post-list__item leading-tight measure-long first">
+            <div class="container__inner flow word-balloon page">
+                <article class="snippet" role="article">
+                {% block content %}
+                    {{ content | safe }}
+                {% endblock %}
+                </article>
+                <aside>
+                    <img src="/assets/mack-and-stubby.png" alt="Mack and Stubby">
+                </aside>
+            </div>
+        </li>
+
+        {%- for item in collections.blog -%}
+            {% include '_article-snippet.njk' %}
+        {%- endfor -%}
+
+    </ul>
+</section>

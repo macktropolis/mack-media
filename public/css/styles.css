@@ -2003,8 +2003,8 @@ nav.site-nav ul li a:hover {
 -------------------------------------------------------- */
 .articles {
   min-height: 100vh;
-  padding: 0;
-  width: 94%;
+  padding: 0 0 0 calc( var(--flow-200) * 1.5 );
+  width: 95%;
   margin-left: auto;
   margin-right: auto;
 }
@@ -2033,130 +2033,37 @@ nav.site-nav ul li a:hover {
 .articles .articles__list li .container__inner {
   background-color: hsl(var(--clr-white));
   background-image: linear-gradient(transparent, hsl(var(--clr-black)/0.075));
-  border: var(--flow-50) solid hsl(var(--clr-secondary));
   border-radius: var(--flow-300);
-  box-shadow: var(--flow-100) var(--flow-100) 0 hsl(var(--clr-black)/0.15);
+  box-shadow: 2px 2px 4px hsl(var(--clr-black)/0.5);
   margin: 0;
   padding: var(--flow-300);
   position: relative;
   width: 100%;
 }
 @media (min-width: 1112px) {
-  .articles .articles__list li .container__inner {
-    /*
-    &::before {
-        background-color: hsl( var(--clr-white) );
-        border-left: var(--flow-50) solid hsl( var(--clr-secondary) );
-        border-bottom: var(--flow-50) solid hsl( var(--clr-secondary) );
-        content: '';
-        width: 25px; 
-        height: 25px;
-        position: absolute;
-        left: -15px;
-        top: 50px;
-        transform: rotate(45deg);
-    } // .word-balloon::after
-    */
-  }
   .articles .articles__list li .container__inner.single {
     margin-bottom: var(--flow-400);
   }
-}
-.articles .articles__list li .container__inner.picture {
-  border-color: hsl(var(--clr-quaternary));
-  min-height: calc( var(--flow-200) * 30);
-  overflow: hidden;
-}
-.articles .articles__list li .container__inner.picture > article {
-  display: none;
-}
-.articles .articles__list li .container__inner.picture > article h1, .articles .articles__list li .container__inner.picture > article h2, .articles .articles__list li .container__inner.picture > article h3, .articles .articles__list li .container__inner.picture > article h4, .articles .articles__list li .container__inner.picture > article h5, .articles .articles__list li .container__inner.picture > article h6, .articles .articles__list li .container__inner.picture > article a {
-  color: hsl(var(--clr-quaternary));
-}
-.articles .articles__list li .container__inner.picture > article a::after {
-  background-color: hsl(var(--clr-quaternary));
-}
-.articles .articles__list li .container__inner.picture::before {
-  border-color: hsl(var(--clr-quaternary));
-}
-.articles .articles__list li .container__inner.picture > aside {
-  background-color: hsl(var(--clr-quaternary));
-  border: none;
-  border-radius: 0;
-  isolation: isolate;
-  height: 100%;
-  inset: 0;
-  width: 100%;
-}
-.articles .articles__list li .container__inner.picture > aside a span {
-  background-color: hsl(var(--clr-quaternary));
-  border-top-left-radius: var(--flow-300);
-  color: hsl(var(--clr-white));
-  display: inline-block;
-  padding: var(--flow-200) var(--flow-300);
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  text-align: center;
-  width: auto;
-  z-index: 10;
-}
-.articles .articles__list li .container__inner.picture > aside img {
-  filter: sepia(1);
-  transition: all 500ms ease-in-out;
-}
-.articles .articles__list li .container__inner.picture > aside img:hover {
-  filter: sepia(0);
-}
-.articles .articles__list li .container__inner.link {
-  border-color: hsl(var(--clr-quinary));
-}
-.articles .articles__list li .container__inner.link > article h1, .articles .articles__list li .container__inner.link > article h2, .articles .articles__list li .container__inner.link > article h3, .articles .articles__list li .container__inner.link > article h4, .articles .articles__list li .container__inner.link > article h5, .articles .articles__list li .container__inner.link > article h6, .articles .articles__list li .container__inner.link > article a {
-  color: hsl(var(--clr-quinary));
-}
-.articles .articles__list li .container__inner.link > article a::after {
-  background-color: hsl(var(--clr-quinary));
-}
-.articles .articles__list li .container__inner.link::before {
-  border-color: hsl(var(--clr-quinary));
-}
-.articles .articles__list li .container__inner.link > aside {
-  background-color: hsl(var(--clr-quinary));
-  border-color: hsl(var(--clr-quinary));
-}
-.articles .articles__list li .container__inner.video {
-  border-color: hsl(var(--clr-tertiary));
-  height: calc( var(--flow-200) * 30);
-  overflow: hidden;
-}
-.articles .articles__list li .container__inner.video > article {
-  display: none;
-}
-.articles .articles__list li .container__inner.video > article h1, .articles .articles__list li .container__inner.video > article h2, .articles .articles__list li .container__inner.video > article h3, .articles .articles__list li .container__inner.video > article h4, .articles .articles__list li .container__inner.video > article h5, .articles .articles__list li .container__inner.video > article h6, .articles .articles__list li .container__inner.video > article a {
-  color: hsl(var(--clr-tertiary));
-}
-.articles .articles__list li .container__inner.video > article a::after {
-  background-color: hsl(var(--clr-tertiary));
-}
-.articles .articles__list li .container__inner.video::before {
-  border-color: hsl(var(--clr-tertiary));
-}
-.articles .articles__list li .container__inner.video > aside {
-  background-color: hsl(var(--clr-tertiary));
-  border: none;
-  border-radius: 0;
-  height: 100%;
-  inset: 0;
-  width: 100%;
+  .articles .articles__list li .container__inner::before {
+    background-color: hsl(var(--clr-white));
+    content: "";
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    left: -15px;
+    top: 50px;
+    transform: rotate(45deg);
+  }
 }
 .articles .articles__list li .container__inner > article {
   margin-bottom: calc( var(--flow-200) * 20 );
+  min-height: var(--flow-900);
   width: 100%;
 }
 @media (min-width: 1112px) {
   .articles .articles__list li .container__inner > article {
     margin-bottom: 0;
-    width: 60%;
+    width: 55%;
   }
 }
 .articles .articles__list li .container__inner > article h1, .articles .articles__list li .container__inner > article h2, .articles .articles__list li .container__inner > article h3, .articles .articles__list li .container__inner > article h4, .articles .articles__list li .container__inner > article h5, .articles .articles__list li .container__inner > article h6 {
@@ -2256,9 +2163,6 @@ nav.site-nav ul li a:hover {
   width: 100%;
 }
 .articles .articles__list li .container__inner > aside {
-  background-color: hsl(var(--clr-secondary));
-  border-bottom: var(--flow-50) solid hsl(var(--clr-secondary));
-  border-top: var(--flow-50) solid hsl(var(--clr-secondary));
   border-bottom-right-radius: var(--flow-300);
   border-bottom-left-radius: var(--flow-300);
   height: calc( var(--flow-200) * 20);
@@ -2266,15 +2170,12 @@ nav.site-nav ul li a:hover {
   position: absolute;
   right: 0;
   left: 0;
-  bottom: -5px;
+  bottom: 0;
   width: 100%;
 }
 @media (min-width: 1112px) {
   .articles .articles__list li .container__inner > aside {
     border-radius: 0;
-    border: none;
-    border-left: var(--flow-50) solid hsl(var(--clr-secondary));
-    border-right: var(--flow-50) solid hsl(var(--clr-secondary));
     border-bottom-right-radius: var(--flow-300);
     border-top-right-radius: var(--flow-300);
     height: auto;
@@ -2303,6 +2204,48 @@ nav.site-nav ul li a:hover {
   object-fit: cover;
   width: 100%;
 }
+.articles .articles__list li.first .container__inner {
+  background-color: #fffcf5;
+}
+@media (min-width: 1112px) {
+  .articles .articles__list li.first .container__inner::before {
+    background-color: #fffcf5;
+  }
+}
+.articles .articles__list li.first .container__inner > article {
+  margin-bottom: 0;
+}
+@media (min-width: 1112px) {
+  .articles .articles__list li.first .container__inner > article {
+    width: 60%;
+  }
+}
+.articles .articles__list li.first .container__inner > article h2 {
+  color: hsl(var(--clr-black)/0.8);
+  font-family: var(--ff-display);
+  font-size: var(--fs-500);
+  margin-bottom: var(--flow-300);
+}
+.articles .articles__list li.first .container__inner > article [class^=link] {
+  display: block;
+}
+@media (min-width: 1112px) {
+  .articles .articles__list li.first .container__inner > article [class^=link] {
+    display: inline-block;
+  }
+}
+.articles .articles__list li.first .container__inner > aside {
+  display: none;
+}
+@media (min-width: 1112px) {
+  .articles .articles__list li.first .container__inner > aside {
+    display: block;
+    padding: calc( var(--flow-200) * 2);
+  }
+}
+.articles .articles__list li.first .container__inner > aside img {
+  object-fit: contain;
+}
 
 .meta {
   display: grid;
@@ -2310,7 +2253,7 @@ nav.site-nav ul li a:hover {
   grid-gap: var(--flow-50);
   color: hsl(var(--clr-black)/0.5);
   padding-left: var(--flow-200);
-  padding-top: var(--flow-200);
+  padding-top: var(--flow-100);
   text-shadow: 1px 1px 0 hsl(var(--clr-white));
 }
 @media (min-width: 1112px) {
